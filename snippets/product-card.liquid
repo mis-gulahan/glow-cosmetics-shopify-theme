@@ -1,0 +1,52 @@
+{%- comment -%}
+  Renders product card component
+  Accepts:
+  - product: {Object} Product Liquid object
+  - show_badge: {Boolean}
+  - badge_text: {String}
+{%- endcomment -%}
+
+<div class="product-card" data-category="{{ product.type | default: 'Face Care' | handleize }}">
+  <div class="card-media-wrap">
+    {%- if show_badge != false -%}
+      <span class="card-badge">{{ badge_text | default: 'SALE' }}</span>
+    {%- endif -%}
+
+    <a href="{{ product.url | default: '#' }}" class="card-img-link">
+      {%- if product.featured_image != blank -%}
+        <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title | escape }}" loading="lazy">
+      {%- else -%}
+        <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Glow Product" loading="lazy">
+      {%- endif -%}
+    </a>
+
+    <div class="card-quick-actions">
+      <button type="button" class="action-icon-btn wishlist" title="Add to Wishlist" aria-label="Add to Wishlist">
+        {% render 'icon-heart' %}
+      </button>
+      <button type="button" class="action-icon-btn quickview" title="Quick View" aria-label="Quick View">
+        {% render 'icon-search' %}
+      </button>
+      <button type="button" class="action-icon-btn cart" title="Add to Cart" aria-label="Add to Cart">
+        {% render 'icon-cart' %}
+      </button>
+    </div>
+  </div>
+
+  <div class="card-details">
+    <h3 class="product-card-title">
+      <a href="{{ product.url | default: '#' }}">{{ product.title | default: 'Smooth Essen' }}</a>
+    </h3>
+
+    {% render 'rating-stars', rating: 5 %}
+
+    <div class="card-prices">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="price-compare">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+      <span class="price-current">{{ product.price | default: 3573 | money }}</span>
+    </div>
+
+    {% render 'color-swatches' %}
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "current": {
+    "color_primary": "#7d8c55",
+    "color_secondary": "#c5997e",
+    "color_bg_main": "#ffffff",
+    "color_bg_subtle": "#fbf9f5",
+    "color_dark": "#1a1a1a",
+    "color_text_main": "#2b2b2b",
+    "color_text_muted": "#767676",
+    "color_border": "#ece7e1",
+    "social_twitter_link": "https://twitter.com",
+    "social_facebook_link": "https://facebook.com",
+    "social_instagram_link": "https://instagram.com",
+    "social_pinterest_link": "https://pinterest.com",
+    "logo_width": 130,
+    "enable_quick_buy": true,
+    "enable_urgency_bar": true
+  },
+  "presets": {
+    "Default": {
+      "color_primary": "#7d8c55",
+      "color_secondary": "#c5997e",
+      "color_bg_main": "#ffffff",
+      "color_bg_subtle": "#fbf9f5",
+      "color_dark": "#1a1a1a",
+      "color_text_main": "#2b2b2b",
+      "color_text_muted": "#767676",
+      "color_border": "#ece7e1"
+    }
+  }
+}

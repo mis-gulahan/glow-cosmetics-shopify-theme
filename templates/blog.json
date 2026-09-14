@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "blog_posts": {
+      "type": "blog-posts",
+      "settings": {
+        "subtitle": "Journal",
+        "title": "Beauty & Skincare Articles"
+      }
+    }
+  },
+  "order": [
+    "blog_posts"
+  ]
+}

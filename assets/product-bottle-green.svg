@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b5ba9d"/>
+      <stop offset="50%" stop-color="#e2e5d5"/>
+      <stop offset="100%" stop-color="#9ea387"/>
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#556041"/>
+      <stop offset="30%" stop-color="#73815b"/>
+      <stop offset="70%" stop-color="#8a9a6e"/>
+      <stop offset="100%" stop-color="#4d573a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="15" flood-color="#1b1b1b" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  
+  <!-- Subtle ground shadow -->
+  <ellipse cx="200" cy="510" rx="90" ry="16" fill="#000" opacity="0.08" filter="blur(8px)"/>
+  
+  <!-- Bottle Group -->
+  <g filter="url(#shadow)">
+    <!-- Metallic Cap -->
+    <rect x="175" y="65" width="50" height="75" rx="5" fill="url(#capGrad)"/>
+    <line x1="175" y1="125" x2="225" y2="125" stroke="#90957b" stroke-width="1.5"/>
+    <rect x="180" y="58" width="40" height="8" rx="2" fill="#d4d8c5"/>
+    
+    <!-- Bottle Neck -->
+    <rect x="178" y="140" width="44" height="15" fill="#4d573a"/>
+
+    <!-- Bottle Body -->
+    <path d="M 140 185 
+             C 140 155, 170 145, 185 145 
+             L 215 145 
+             C 230 145, 260 155, 260 185 
+             L 260 460 
+             C 260 480, 240 490, 200 490 
+             C 160 490, 140 480, 140 460 
+             Z" fill="url(#bodyGrad)"/>
+
+    <!-- Specular Highlight -->
+    <path d="M 152 185 C 152 165, 172 155, 185 153 L 185 478 C 172 478, 152 468, 152 452 Z" fill="#ffffff" opacity="0.16"/>
+    <rect x="160" y="170" width="8" height="290" rx="4" fill="#ffffff" opacity="0.25" filter="blur(2px)"/>
+
+    <!-- Bottle Label / Typography -->
+    <g transform="translate(160, 260)">
+      <text x="40" y="0" font-family="'Playfair Display', serif" font-size="13" font-weight="700" fill="#f4f4f0" letter-spacing="4" text-anchor="middle" opacity="0.95">GLOW.</text>
+      <text x="40" y="16" font-family="'Jost', sans-serif" font-size="8" font-weight="500" fill="#e8ebe1" letter-spacing="3" text-anchor="middle" opacity="0.8">SMOOTH ESSEN</text>
+      <line x1="15" y1="26" x2="65" y2="26" stroke="#d5dcce" stroke-width="0.8" opacity="0.6"/>
+      <text x="40" y="38" font-family="'Jost', sans-serif" font-size="6.5" fill="#d5dcce" letter-spacing="1.5" text-anchor="middle" opacity="0.75">ORGANIC BOTANICAL</text>
+      <text x="40" y="48" font-family="'Jost', sans-serif" font-size="6" fill="#d5dcce" letter-spacing="1" text-anchor="middle" opacity="0.6">100ml / 3.4 fl. oz</text>
+    </g>
+  </g>
+</svg>

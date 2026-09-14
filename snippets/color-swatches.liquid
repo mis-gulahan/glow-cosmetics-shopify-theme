@@ -1,0 +1,12 @@
+{%- comment -%}
+  Renders color swatch circles
+  Accepts:
+  - colors: {Array/String} comma-separated hex values or color names
+{%- endcomment -%}
+
+{%- assign default_colors = "#e53e3e,#1a1a1a,#f59e0b,#7d8c55" | split: "," -%}
+<div class="card-swatches">
+  {%- for hex in default_colors -%}
+    <span class="swatch-circle" style="background-color: {{ hex }};" title="Color option"></span>
+  {%- endfor -%}
+</div>

@@ -1,0 +1,71 @@
+<section class="hero-section">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-tag">{{ section.settings.subtitle | default: 'Face Care' }}</span>
+      <h1 class="hero-title">{{ section.settings.title | default: 'Face Skin Care' }}</h1>
+      <p class="hero-desc">
+        {{ section.settings.text | default: 'Experience clean, conscious beauty powered by active plant botanicals and certified organic formulas designed to revitalize your natural skin glow.' }}
+      </p>
+      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-primary">
+        {{ section.settings.button_label | default: 'SHOP NOW' }}
+      </a>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-image-wrapper">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}">
+        {%- else -%}
+          <img src="{{ 'hero-beauty-model.svg' | asset_url }}" alt="Face Skin Care Glow">
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Cursive Subtitle",
+      "default": "Natural"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Face Skin Care"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Experience clean, conscious beauty powered by active plant botanicals and certified organic formulas designed to revitalize your natural skin glow."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

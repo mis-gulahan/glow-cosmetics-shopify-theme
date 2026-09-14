@@ -1,0 +1,89 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: About & Social -->
+      <div class="footer-col">
+        <a href="/" class="logo-brand" style="color: #ffffff; margin-bottom: 16px;">
+          Glow<span style="color: var(--color-primary);">.</span>
+        </a>
+        <p>
+          {{ section.settings.about_text | default: 'Pure, botanical skincare engineered for everyday skin luminosity. Ethical, cruelty-free, and dermatologically tested.' }}
+        </p>
+        <div class="social-icons-row">
+          <a href="{{ settings.social_facebook_link | default: '#' }}" class="social-circle-btn" aria-label="Facebook">f</a>
+          <a href="{{ settings.social_twitter_link | default: '#' }}" class="social-circle-btn" aria-label="Twitter">t</a>
+          <a href="{{ settings.social_instagram_link | default: '#' }}" class="social-circle-btn" aria-label="Instagram">in</a>
+          <a href="{{ settings.social_pinterest_link | default: '#' }}" class="social-circle-btn" aria-label="Pinterest">p</a>
+        </div>
+      </div>
+
+      <!-- Col 2: Information -->
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links-list">
+          <a href="/pages/about-us">About Us</a>
+          <a href="/pages/shipping-delivery">Delivery Information</a>
+          <a href="/policies/privacy-policy">Privacy Policy</a>
+          <a href="/policies/terms-of-service">Terms & Conditions</a>
+          <a href="/search">Advanced Search</a>
+        </div>
+      </div>
+
+      <!-- Col 3: Categories -->
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <div class="footer-links-list">
+          <a href="/collections/face-care">Face Care</a>
+          <a href="/collections/body-care">Body Care</a>
+          <a href="/collections/fragrances">Fragrances</a>
+          <a href="/collections/make-up">Makeup Essentials</a>
+          <a href="/collections/accessories">Accessories & Tools</a>
+        </div>
+      </div>
+
+      <!-- Col 4: Contact -->
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <p style="margin-bottom: 8px;">📍 450 Sunset Blvd, Suite 200, Beverly Hills, CA</p>
+        <p style="margin-bottom: 8px;">📞 +1 (800) 456-7890</p>
+        <p style="margin-bottom: 8px;">✉️ support@glowskinstore.com</p>
+        <p>🕒 Mon - Fri: 9:00 AM - 6:00 PM EST</p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div>
+          {{ section.settings.copyright | default: '© 2026 Glow Cosmetic Store. All Rights Reserved. Built with Online Store 2.0.' }}
+        </div>
+        <div class="payment-badges-row">
+          <span class="payment-badge" style="color: #1a1a1a; font-weight: 700; font-size: 0.75rem;">VISA</span>
+          <span class="payment-badge" style="color: #ea1d25; font-weight: 700; font-size: 0.75rem;">Mastercard</span>
+          <span class="payment-badge" style="color: #003087; font-weight: 700; font-size: 0.75rem;">PayPal</span>
+          <span class="payment-badge" style="color: #000000; font-weight: 700; font-size: 0.75rem;"> Pay</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "about_text",
+      "label": "About Brand Text",
+      "default": "Pure, botanical skincare engineered for everyday skin luminosity. Ethical, cruelty-free, and dermatologically tested."
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright Text",
+      "default": "© 2026 Glow Cosmetic Store. All Rights Reserved."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <circle cx="100" cy="100" r="95" fill="#f4ede6" stroke="#7d8c55" stroke-width="3"/>
+  <!-- Doctor Avatar -->
+  <g transform="translate(30, 20)">
+    <!-- Lab coat -->
+    <path d="M 10 160 C 20 120, 50 110, 70 110 C 90 110, 120 120, 130 160 Z" fill="#ffffff" stroke="#e0e0e0"/>
+    <path d="M 55 110 L 70 145 L 85 110 Z" fill="#e8f5e9"/>
+    <!-- Stethoscope hint -->
+    <path d="M 50 115 Q 70 145 90 115" stroke="#7d8c55" stroke-width="3" fill="none"/>
+    <circle cx="70" cy="148" r="7" fill="#7d8c55"/>
+    
+    <!-- Face -->
+    <circle cx="70" cy="70" r="36" fill="#fcd9c3"/>
+    <!-- Hair -->
+    <path d="M 32 60 C 35 30, 60 20, 80 20 C 105 20, 110 40, 108 65 C 98 40, 80 35, 70 35 C 50 35, 38 45, 32 60 Z" fill="#5c3826"/>
+    <!-- Glasses -->
+    <rect x="48" y="60" width="18" height="12" rx="4" fill="none" stroke="#333" stroke-width="1.8"/>
+    <rect x="74" y="60" width="18" height="12" rx="4" fill="none" stroke="#333" stroke-width="1.8"/>
+    <line x1="66" y1="66" x2="74" y2="66" stroke="#333" stroke-width="1.8"/>
+    <!-- Smile -->
+    <path d="M 62 88 Q 70 95 78 88" stroke="#a3543f" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

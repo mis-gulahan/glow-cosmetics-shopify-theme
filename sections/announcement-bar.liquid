@@ -1,0 +1,36 @@
+{%- if section.settings.show_announcement -%}
+<div class="announcement-bar" role="region" aria-label="Announcement">
+  <div class="container">
+    <span>{{ section.settings.text | default: '20% OFF FOR COSMETIC GLOW STORE!' }}</span>
+    {%- if section.settings.allow_dismiss -%}
+      <button type="button" class="close-btn" aria-label="Close announcement">&times;</button>
+    {%- endif -%}
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "20% OFF FOR COSMETIC GLOW STORE!"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_dismiss",
+      "label": "Allow visitors to dismiss",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

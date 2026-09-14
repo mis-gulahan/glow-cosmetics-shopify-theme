@@ -1,0 +1,96 @@
+<section class="split-feature-section">
+  <div class="container split-feature-grid">
+    <div class="split-feature-media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 600 }}" alt="{{ section.settings.title | escape }}">
+      {%- else -%}
+        <img src="{{ 'split-comparison.svg' | asset_url }}" alt="Before and After Comparison">
+      {%- endif -%}
+    </div>
+
+    <div class="split-feature-content">
+      <span class="feature-tag-badge">{{ section.settings.subtitle | default: 'NATURAL CARE' }}</span>
+      <h2 class="section-title">{{ section.settings.title | default: 'What makes us unique?' }}</h2>
+      <p class="section-desc" style="margin: 0 0 20px 0;">
+        {{ section.settings.text | default: 'Our clinical approach combines botanical purity with advanced cosmetic science, ensuring optimal skin repair and sustained cellular hydration.' }}
+      </p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="benefit-check-icon">✓</div>
+          <div class="benefit-text">
+            <h5>100% Pure Botanical Actives</h5>
+            <p>Formulated without harsh chemicals, parabens, or synthetic fragrance.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-check-icon">✓</div>
+          <div class="benefit-text">
+            <h5>Clinically Tested & Proven</h5>
+            <p>98% of users observed visible skin rejuvenation within 14 days.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-check-icon">✓</div>
+          <div class="benefit-text">
+            <h5>Sustainable Eco Glass Bottles</h5>
+            <p>Packaged in recyclable UV-protected glass to preserve active potency.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="{{ section.settings.btn_link | default: '/pages/about-us' }}" class="btn btn-primary">
+        {{ section.settings.btn_text | default: 'READ MORE' }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Split Feature",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "NATURAL CARE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What makes us unique?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Our clinical approach combines botanical purity with advanced cosmetic science, ensuring optimal skin repair and sustained cellular hydration."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Feature Image"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "READ MORE"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Feature"
+    }
+  ]
+}
+{% endschema %}

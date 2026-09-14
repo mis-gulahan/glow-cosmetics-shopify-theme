@@ -1,0 +1,218 @@
+<div class="container pdp-page-layout">
+  <!-- Left Column: Sidebar -->
+  {% section 'product-sidebar' %}
+
+  <!-- Right Column: Main PDP Content -->
+  <div class="pdp-main-content">
+    <div class="pdp-main-grid">
+      <!-- Media Gallery -->
+      <div class="gallery-container">
+        <div class="gallery-main-view">
+          {%- if product.featured_image != blank -%}
+            <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" id="pdpMainImg">
+          {%- else -%}
+            <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Smooth Essen Bottle" id="pdpMainImg">
+          {%- endif -%}
+        </div>
+
+        <div class="gallery-thumbs-row">
+          <button type="button" class="gallery-nav-arrow prev" aria-label="Previous">&lt;</button>
+          
+          <button type="button" class="gallery-thumb-btn active" data-src="{{ 'product-bottle-green.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Thumb 1">
+          </button>
+          
+          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-rose.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Thumb 2">
+          </button>
+
+          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-blue.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Thumb 3">
+          </button>
+
+          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-amber.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Thumb 4">
+          </button>
+
+          <button type="button" class="gallery-nav-arrow next" aria-label="Next">&gt;</button>
+        </div>
+      </div>
+
+      <!-- Product Form & Meta -->
+      <div class="pdp-info-wrap">
+        <h1 class="pdp-title">{{ product.title | default: 'Smooth Essen' }}</h1>
+
+        <div class="pdp-rating-row">
+          {% render 'rating-stars' %}
+        </div>
+
+        <div class="pdp-price-row">
+          <span class="pdp-price-large">{{ product.price | default: 3573 | money }}</span>
+        </div>
+
+        <div class="pdp-meta-row">
+          <div><strong>Vendor :</strong> {{ product.vendor | default: 'glass-labs' }}</div>
+          <div><strong>Product Type :</strong> {{ product.type | default: 'glow' }}</div>
+        </div>
+
+        <!-- Wishlist & Sizechart -->
+        <div class="pdp-actions-row">
+          <a href="#" class="add-wishlist">
+            {% render 'icon-heart' %} Add to Wishlist
+          </a>
+          <a href="#" class="open-sizechart">
+            📏 Sizechart
+          </a>
+        </div>
+
+        <!-- Stock Urgency Bar -->
+        <div class="stock-urgency-box">
+          <div class="stock-text">Hurry! only 4 units left in stock!</div>
+          <div class="stock-bar-track">
+            <div class="stock-bar-fill" style="width: 25%;"></div>
+          </div>
+        </div>
+
+        <!-- Variant Swatches -->
+        <div class="variant-selector-group">
+          <span class="variant-label">Color: <strong class="selected-color-name">Red</strong></span>
+          <div class="pdp-swatches">
+            <button type="button" class="pdp-swatch-btn active" style="background-color: #e53935;" data-color="Red" aria-label="Red"></button>
+            <button type="button" class="pdp-swatch-btn" style="background-color: #1a1a1a;" data-color="Black" aria-label="Black"></button>
+            <button type="button" class="pdp-swatch-btn" style="background-color: #fb8c00;" data-color="Orange" aria-label="Orange"></button>
+            <button type="button" class="pdp-swatch-btn" style="background-color: #43a047;" data-color="Green" aria-label="Green"></button>
+          </div>
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        {% form 'product', product, id: 'product-form' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: 1 }}">
+
+          <div class="pdp-purchase-row">
+            <div class="quantity-stepper">
+              <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">-</button>
+              <input type="text" name="quantity" class="qty-input" value="1" readonly aria-label="Quantity">
+              <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <div class="pdp-btn-group">
+            <button type="submit" name="add" class="btn btn-add-cart">ADD TO CART</button>
+            <button type="button" class="btn btn-buy-now">BUY IT NOW</button>
+          </div>
+        {% endform %}
+
+        <!-- Trust Features (2x2 Grid) -->
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">📦</div>
+            <div class="trust-text">
+              <h6>Free Delivery</h6>
+              <p>Lorem ipsum dummy</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">₹</div>
+            <div class="trust-text">
+              <h6>Way To Buy</h6>
+              <p>Lorem ipsum dummy</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">👤</div>
+            <div class="trust-text">
+              <h6>Personal Session</h6>
+              <p>Lorem ipsum dummy</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">🎁</div>
+            <div class="trust-text">
+              <h6>Gift Voucher</h6>
+              <p>Lorem ipsum dummy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Description & Accordion Tabs Section -->
+    <div class="pdp-tabs-section">
+      <div class="pdp-tab-nav" role="tablist">
+        <button type="button" class="tab-nav-btn active" data-tab="tab-desc">DESCRIPTION</button>
+        <button type="button" class="tab-nav-btn" data-tab="tab-reviews">REVIEW TAB</button>
+        <button type="button" class="tab-nav-btn" data-tab="tab-shipping">SHIPPING &amp; RETURNS</button>
+        <button type="button" class="tab-nav-btn" data-tab="tab-custom">CUSTOM TAB</button>
+      </div>
+
+      <!-- Tab 1: Description -->
+      <div class="pdp-tab-pane active" id="tab-desc">
+        <p style="margin-bottom: 16px;">
+          Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessories with a straw hat and you’re ready for summer!
+        </p>
+
+        <h4>Sample Unordered List</h4>
+        <ul>
+          <li>Commodous in tempor ullamcorper minusculis</li>
+          <li>Pellentesque vitae neque mattis urna mattis laoreet.</li>
+          <li>Vivamus sit amet purus justo.</li>
+          <li>Proin molestie egestas orci ac suscipit risus posuere loremou.</li>
+        </ul>
+
+        <h4>Sample Ordered List</h4>
+        <ol>
+          <li>Commodous in tempor ullamcorper minusculis</li>
+          <li>Pellentesque vitae neque mattis urna mattis laoreet.</li>
+          <li>Vivamus sit amet purus justo.</li>
+          <li>Proin molestie egestas orci ac suscipit risus posuere loremou.</li>
+        </ol>
+
+        <h4>Sample Paragraph Text</h4>
+        <blockquote style="font-style: italic; background: #fdfbf7; padding: 14px 20px; border-left: 3px solid var(--color-secondary); margin-top: 10px; border-radius: 4px;">
+          Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessories with a straw hat and you’re ready for summer! Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit.
+        </blockquote>
+      </div>
+
+      <!-- Tab 2: Reviews -->
+      <div class="pdp-tab-pane" id="tab-reviews">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <div>
+            <h4 style="margin: 0;">Customer Reviews</h4>
+            {% render 'rating-stars' %}
+            <span style="font-size: 0.85rem; color: var(--color-text-muted);">Based on 48 genuine reviews</span>
+          </div>
+          <button type="button" class="btn btn-outline" style="padding: 8px 16px;">Write a Review</button>
+        </div>
+        <p style="color: var(--color-text-muted);">
+          “Incredible texture and absorption! My skin has never felt softer or more hydrated throughout dry season.” — <em>Sarah L.</em>
+        </p>
+      </div>
+
+      <!-- Tab 3: Shipping & Returns -->
+      <div class="pdp-tab-pane" id="tab-shipping">
+        <h4>Shipping Policy</h4>
+        <p>Standard delivery takes 3-5 business days. We offer free express shipping on all domestic orders over $50.</p>
+        <h4 style="margin-top: 14px;">30-Day Happiness Guarantee</h4>
+        <p>If you are not completely satisfied with your botanical skincare product, return it within 30 days for a full refund or exchange.</p>
+      </div>
+
+      <!-- Tab 4: Custom Tab -->
+      <div class="pdp-tab-pane" id="tab-custom">
+        <h4>Clean Beauty Pledge</h4>
+        <p>
+          All Glow formulas are strictly formulated without parabens, sulfates, phthalates, synthetic dyes, or artificial fragrances. Verified by independent lab testing.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Product Detail",
+  "settings": []
+}
+{% endschema %}

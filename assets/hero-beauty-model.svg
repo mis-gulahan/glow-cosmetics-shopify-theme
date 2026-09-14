@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faede6"/>
+      <stop offset="50%" stop-color="#fdf6f0"/>
+      <stop offset="100%" stop-color="#f3e3d9"/>
+    </linearGradient>
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7d5be"/>
+      <stop offset="60%" stop-color="#ebb99a"/>
+      <stop offset="100%" stop-color="#dfa480"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2314"/>
+      <stop offset="50%" stop-color="#5a331c"/>
+      <stop offset="100%" stop-color="#2c160a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Soft organic background aura -->
+  <rect width="600" height="560" fill="url(#bgWarm)" rx="24"/>
+  <circle cx="480" cy="180" r="180" fill="#f8dfd0" opacity="0.5"/>
+  <circle cx="200" cy="400" r="150" fill="#fceee6" opacity="0.7"/>
+
+  <!-- Aesthetic Botanical Leaf Silhouette -->
+  <g opacity="0.25" fill="#7d8c55">
+    <path d="M 80 480 C 70 400, 110 320, 170 280 C 130 330, 120 420, 80 480 Z"/>
+    <path d="M 120 440 C 140 380, 200 360, 240 370 C 180 390, 150 430, 120 440 Z"/>
+    <path d="M 50 360 C 70 310, 140 290, 180 310 C 130 320, 90 350, 50 360 Z"/>
+  </g>
+
+  <!-- Serene Beauty Model Graphic -->
+  <g transform="translate(140, 40)">
+    <!-- Back Hair Flow -->
+    <path d="M 220 80 C 320 120, 360 280, 320 440 C 300 480, 240 500, 200 510 C 220 420, 240 300, 200 180 Z" fill="url(#hairGrad)"/>
+
+    <!-- Shoulders & Neck -->
+    <path d="M 80 450 C 110 380, 140 320, 170 270 L 220 270 C 250 340, 280 410, 310 470 C 240 500, 140 500, 80 450 Z" fill="url(#skinTone)"/>
+    <!-- Collarbone accents -->
+    <path d="M 140 390 Q 180 405 210 395" stroke="#ce9069" stroke-width="2.5" fill="none" opacity="0.4" stroke-linecap="round"/>
+    <path d="M 220 395 Q 250 405 280 390" stroke="#ce9069" stroke-width="2.5" fill="none" opacity="0.4" stroke-linecap="round"/>
+
+    <!-- Head Profile tilted upwards in bliss -->
+    <path d="M 160 270 C 130 250, 125 190, 140 140 C 155 90, 210 70, 255 100 C 285 120, 280 170, 270 210 C 260 250, 210 280, 160 270 Z" fill="url(#skinTone)"/>
+
+    <!-- Delicate Facial Features -->
+    <!-- Closed peaceful eyelid & lashes -->
+    <path d="M 185 145 Q 200 152 215 145" stroke="#4a2c1d" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="190" y1="148" x2="187" y2="155" stroke="#4a2c1d" stroke-width="1.8"/>
+    <line x1="200" y1="150" x2="200" y2="158" stroke="#4a2c1d" stroke-width="1.8"/>
+    <line x1="210" y1="148" x2="213" y2="155" stroke="#4a2c1d" stroke-width="1.8"/>
+
+    <!-- Eyebrow -->
+    <path d="M 178 135 Q 202 130 225 137" stroke="#3b2014" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Nose profile -->
+    <path d="M 175 145 Q 170 170 180 178 Q 185 178 188 175" stroke="#cc8d66" stroke-width="2" fill="none"/>
+
+    <!-- Soft blush lips -->
+    <path d="M 178 198 Q 192 195 204 198 Q 192 208 178 198 Z" fill="#d97a7a" opacity="0.8"/>
+    <line x1="178" y1="198" x2="204" y2="198" stroke="#b04e4e" stroke-width="1.2"/>
+
+    <!-- Radiant Cheeks Glow -->
+    <circle cx="210" cy="175" r="22" fill="#ff8a80" opacity="0.25" filter="blur(8px)"/>
+
+    <!-- Gentle Hand touching face/cheek (Signature Skincare Pose) -->
+    <path d="M 120 300 C 130 260, 145 220, 165 190 C 175 175, 185 180, 180 200 C 170 230, 155 270, 145 320 Z" fill="url(#skinTone)"/>
+    <path d="M 135 230 C 148 195, 160 170, 172 165 C 180 162, 184 170, 178 185 C 168 210, 155 245, 145 270 Z" fill="url(#skinTone)"/>
+
+    <!-- Front Lustrous Hair waves -->
+    <path d="M 230 85 C 200 70, 150 100, 165 140 C 150 130, 140 100, 180 75 C 220 50, 270 70, 270 100 Z" fill="url(#hairGrad)"/>
+    <path d="M 255 100 C 270 130, 260 170, 275 220 C 285 260, 270 310, 265 350 C 260 300, 280 240, 265 180 C 255 140, 260 110, 255 100 Z" fill="url(#hairGrad)"/>
+  </g>
+
+  <!-- Glowing Aura / Star Accents -->
+  <g fill="#7d8c55" opacity="0.6">
+    <polygon points="120,90 123,98 131,101 123,104 120,112 117,104 109,101 117,98"/>
+    <polygon points="460,70 462,76 468,78 462,80 460,86 458,80 452,78 458,76"/>
+    <polygon points="510,290 512,295 517,297 512,299 510,304 508,299 503,297 508,295"/>
+  </g>
+</svg>

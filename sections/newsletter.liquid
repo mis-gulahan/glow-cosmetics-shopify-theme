@@ -1,0 +1,63 @@
+<section class="newsletter-section">
+  <div class="container">
+    <span class="section-tag">{{ section.settings.subtitle | default: 'Stay Connected' }}</span>
+    <h2 class="section-title">{{ section.settings.title | default: 'Subscribe & Get Discount' }}</h2>
+    <p class="section-desc">
+      {{ section.settings.text | default: 'Join our beauty club and receive 20% off your first organic skincare order, plus early VIP access to new releases.' }}
+    </p>
+
+    {% form 'customer', class: 'newsletter-form' %}
+      <div class="newsletter-form-wrapper">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input
+          type="email"
+          name="contact[email]"
+          class="newsletter-input"
+          placeholder="Enter your email address..."
+          required
+          aria-label="Email address"
+        >
+        <button type="submit" class="btn btn-primary">
+          {{ section.settings.btn_text | default: 'SUBSCRIBE' }}
+        </button>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Stay Connected"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Subscribe & Get Discount"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Join our beauty club and receive 20% off your first organic skincare order, plus early VIP access to new releases."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "SUBSCRIBE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

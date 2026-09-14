@@ -1,0 +1,35 @@
+<div class="container" style="padding: 50px 0;">
+  <div class="section-header-center">
+    <h1 class="section-title">{{ collection.title | default: 'All Skincare Products' }}</h1>
+    <p class="section-desc">{{ collection.description | default: 'Explore our complete line of plant-powered botanical cosmetic formulations.' }}</p>
+  </div>
+
+  <div class="product-grid">
+    {%- paginate collection.products by 12 -%}
+      {%- for product in collection.products -%}
+        {% render 'product-card', product: product %}
+      {%- else -%}
+        {%- for i in (1..8) -%}
+          <div class="product-card">
+            <div class="card-media-wrap">
+              <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Glow Product">
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title">Organic Botanical Serum</h3>
+              {% render 'rating-stars' %}
+              <div class="card-prices"><span class="price-current">$38.00</span></div>
+              {% render 'color-swatches' %}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}

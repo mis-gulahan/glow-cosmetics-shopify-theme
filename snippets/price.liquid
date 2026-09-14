@@ -1,0 +1,25 @@
+{%- comment -%}
+  Renders product price
+  Accepts:
+  - product: {Object} Product Liquid object
+  - use_variant: {Boolean} Renders selected or first available variant's price
+{%- endcomment -%}
+
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 3573
+  assign available = target.available | default: true
+-%}
+
+<div class="card-prices">
+  {%- if compare_at_price > price -%}
+    <span class="price-compare">{{ compare_at_price | money }}</span>
+  {%- endif -%}
+  <span class="price-current">{{ price | money }}</span>
+</div>

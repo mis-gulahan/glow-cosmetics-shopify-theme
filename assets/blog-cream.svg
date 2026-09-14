@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="100%" height="100%">
+  <rect width="400" height="280" fill="#fcf7f2"/>
+  <!-- Luxury Skincare Cream Glass Jar -->
+  <g transform="translate(130, 70)">
+    <!-- Base shadow -->
+    <ellipse cx="70" cy="140" rx="60" ry="12" fill="#000" opacity="0.08" filter="blur(4px)"/>
+    <!-- Lid -->
+    <rect x="25" y="20" width="90" height="26" rx="4" fill="#7d8c55"/>
+    <rect x="30" y="24" width="80" height="3" fill="#9db074" opacity="0.6"/>
+    <!-- Glass Jar -->
+    <path d="M 15 46 L 125 46 L 120 130 C 120 138, 110 142, 70 142 C 30 142, 20 138, 20 130 Z" fill="#ffffff" stroke="#e0dbd5" stroke-width="2"/>
+    <!-- Cream fill -->
+    <path d="M 24 65 L 116 65 L 112 125 C 112 130, 95 134, 70 134 C 45 134, 28 130, 28 125 Z" fill="#faeee3"/>
+    <!-- Label -->
+    <rect x="35" y="75" width="70" height="40" rx="2" fill="#ffffff" stroke="#f0ece6"/>
+    <text x="70" y="94" font-family="'Playfair Display', serif" font-size="9" font-weight="700" fill="#1a1a1a" text-anchor="middle">GLOW.</text>
+    <text x="70" y="106" font-family="'Jost', sans-serif" font-size="6" fill="#7d8c55" text-anchor="middle">VELVET CREAM</text>
+  </g>
+</svg>

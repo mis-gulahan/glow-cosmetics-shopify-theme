@@ -1,0 +1,96 @@
+<section class="hotspots-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-tag">{{ section.settings.subtitle | default: 'Science & Nature' }}</span>
+      <h2 class="section-title">{{ section.settings.title | default: 'Pure Organic Perfection' }}</h2>
+    </div>
+
+    <div class="hotspots-grid">
+      <!-- Interactive Hotspot Stage -->
+      <div class="hotspot-stage">
+        <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Glow Featured Essence">
+
+        <!-- Hotspot 1 -->
+        <div class="hotspot-marker hotspot-top-left" title="Click to inspect">
+          <div class="hotspot-dot"></div>
+          <div class="hotspot-label">Hydrating Formula</div>
+        </div>
+
+        <!-- Hotspot 2 -->
+        <div class="hotspot-marker hotspot-top-right" title="Click to inspect">
+          <div class="hotspot-dot"></div>
+          <div class="hotspot-label">Natural Vitamin C</div>
+        </div>
+
+        <!-- Hotspot 3 -->
+        <div class="hotspot-marker hotspot-bottom-left" title="Click to inspect">
+          <div class="hotspot-dot"></div>
+          <div class="hotspot-label">Zero Parabens</div>
+        </div>
+
+        <!-- Hotspot 4 -->
+        <div class="hotspot-marker hotspot-bottom-right" title="Click to inspect">
+          <div class="hotspot-dot"></div>
+          <div class="hotspot-label">Sensitive Skin Safe</div>
+        </div>
+      </div>
+
+      <!-- Expert Card -->
+      <div class="expert-card">
+        <img src="{{ 'doctor-portrait.svg' | asset_url }}" alt="Dr. Angela Russell" class="expert-avatar">
+        <h3 class="expert-name">{{ section.settings.doctor_name | default: 'Dr. Angela Russell' }}</h3>
+        <p class="expert-role">{{ section.settings.doctor_role | default: 'Lead Clinical Dermatologist' }}</p>
+        <p class="expert-quote">
+          “{{ section.settings.quote | default: 'This organic formulation surpasses standard cosmetic standards. It works synergistically to deeply nourish the lipid barrier, replenishing natural moisture without clogging pores.' }}”
+        </p>
+        {% render 'rating-stars' %}
+        <div style="margin-top: 20px;">
+          <a href="/pages/clinical-results" class="btn btn-outline">Clinical Study</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Hotspots",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Science & Nature"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Pure Organic Perfection"
+    },
+    {
+      "type": "text",
+      "id": "doctor_name",
+      "label": "Expert Name",
+      "default": "Dr. Angela Russell"
+    },
+    {
+      "type": "text",
+      "id": "doctor_role",
+      "label": "Expert Role",
+      "default": "Lead Clinical Dermatologist"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Expert Quote",
+      "default": "This organic formulation surpasses standard cosmetic standards. It works synergistically to deeply nourish the lipid barrier, replenishing natural moisture without clogging pores."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Hotspots"
+    }
+  ]
+}
+{% endschema %}

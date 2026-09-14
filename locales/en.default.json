@@ -1,0 +1,84 @@
+{
+  "general": {
+    "search": {
+      "search": "Search our store...",
+      "submit": "Search",
+      "no_results": "No results found for \"{{ terms }}\""
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    },
+    "newsletter_form": {
+      "email_placeholder": "Enter your email address...",
+      "submit": "Subscribe",
+      "success": "Thank you for subscribing to Glow."
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "20% OFF FOR COSMETIC GLOW STORE!",
+      "wishlist": "Wishlist",
+      "contact": "Contact",
+      "cart_count": "{{ count }} item"
+    },
+    "trending": {
+      "heading": "Trending Products",
+      "subtitle": "OUR COLLECTION",
+      "view_all": "VIEW ALL PRODUCTS"
+    },
+    "unique": {
+      "title": "What makes us unique?",
+      "button": "READ MORE"
+    },
+    "hotspots": {
+      "badge": "FEATURE HIGHLIGHTS",
+      "title": "Pure Organic Perfection"
+    },
+    "deal": {
+      "title": "Deal Of The Day",
+      "hurry": "Hurry! only {{ count }} units left in stock!"
+    },
+    "footer": {
+      "about_title": "About Glow",
+      "about_text": "Clean, conscious beauty powered by pure botanical actives and dermatologist-tested formulas.",
+      "quick_links": "Quick Links",
+      "categories": "Categories",
+      "contact_info": "Customer Care",
+      "copyright": "© 2026 Glow Cosmetic Store. All Rights Reserved."
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "ADD TO CART",
+      "buy_it_now": "BUY IT NOW",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "in_stock": "In Stock",
+      "vendor": "Vendor",
+      "type": "Product Type",
+      "color": "Color",
+      "sale": "SALE",
+      "new": "NEW",
+      "wishlist": "Add to Wishlist",
+      "size_chart": "Sizechart",
+      "tabs": {
+        "description": "DESCRIPTION",
+        "reviews": "REVIEW TAB",
+        "shipping": "SHIPPING & RETURNS",
+        "custom": "CUSTOM TAB"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Shopping Cart",
+      "empty": "Your cart is currently empty.",
+      "continue_shopping": "Continue Shopping",
+      "subtotal": "Subtotal",
+      "checkout": "Proceed to Checkout",
+      "remove": "Remove",
+      "note": "Add order notes / special instructions"
+    }
+  }
+}

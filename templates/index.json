@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "subtitle": "Natural",
+        "title": "Face Skin Care",
+        "text": "Experience clean, conscious beauty powered by active plant botanicals and certified organic formulas designed to revitalize your natural skin glow.",
+        "button_label": "SHOP NOW"
+      }
+    },
+    "features_bar": {
+      "type": "features-bar",
+      "settings": {}
+    },
+    "trending_products": {
+      "type": "trending-products",
+      "settings": {
+        "subtitle": "New Season",
+        "title": "Trending Products",
+        "products_to_show": 4,
+        "btn_label": "VIEW ALL PRODUCTS"
+      }
+    },
+    "split_feature": {
+      "type": "split-feature",
+      "settings": {
+        "subtitle": "NATURAL CARE",
+        "title": "What makes us unique?",
+        "text": "Our clinical approach combines botanical purity with advanced cosmetic science, ensuring optimal skin repair and sustained cellular hydration.",
+        "btn_text": "READ MORE"
+      }
+    },
+    "promo_banner": {
+      "type": "promo-banner",
+      "settings": {
+        "subtitle": "NATURAL",
+        "title": "Body Care Product",
+        "text": "Infused with cold-pressed botanical oils and natural ceramides to nourish your skin barrier with all-day moisture.",
+        "btn_label": "DISCOVER MORE"
+      }
+    },
+    "product_hotspots": {
+      "type": "product-hotspots",
+      "settings": {
+        "subtitle": "Science & Nature",
+        "title": "Pure Organic Perfection",
+        "doctor_name": "Dr. Angela Russell",
+        "doctor_role": "Lead Clinical Dermatologist",
+        "quote": "This organic formulation surpasses standard cosmetic standards. It works synergistically to deeply nourish the lipid barrier, replenishing natural moisture without clogging pores."
+      }
+    },
+    "deal_of_day": {
+      "type": "deal-of-day",
+      "settings": {
+        "subtitle": "Special Offer",
+        "title": "Deal Of The Day",
+        "product_title": "Smoothing Essence"
+      }
+    },
+    "brand_logos": {
+      "type": "brand-logos",
+      "settings": {}
+    },
+    "blog_posts": {
+      "type": "blog-posts",
+      "settings": {
+        "subtitle": "Our Journal",
+        "title": "Latest News"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "subtitle": "Stay Connected",
+        "title": "Subscribe & Get Discount",
+        "text": "Join our beauty club and receive 20% off your first organic skincare order, plus early VIP access to new releases.",
+        "btn_text": "SUBSCRIBE"
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "features_bar",
+    "trending_products",
+    "split_feature",
+    "promo_banner",
+    "product_hotspots",
+    "deal_of_day",
+    "brand_logos",
+    "blog_posts",
+    "newsletter"
+  ]
+}

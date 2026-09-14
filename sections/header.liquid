@@ -1,0 +1,96 @@
+<header class="site-header">
+  <!-- Top Bar -->
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-top-left">
+        <a href="/pages/wishlist">Wishlist</a>
+        <a href="/pages/contact">Contact</a>
+        <div class="header-currency-wrap">
+          <select class="header-select" aria-label="Currency Selector">
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+            <option value="GBP">GBP £</option>
+          </select>
+        </div>
+        <div class="header-lang-wrap">
+          <select class="header-select" aria-label="Language Selector">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="header-top-right">
+        <span>Need help? Call us: +1 (800) 456-7890</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Bar -->
+  <div class="container header-main-inner">
+    <!-- Brand Logo -->
+    <a href="/" class="logo-brand">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 140 }}" alt="{{ shop.name }}" width="{{ section.settings.logo_width }}">
+      {%- else -%}
+        Glow<span>.</span>
+      {%- endif -%}
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="header-nav" role="navigation">
+      <a href="/" class="nav-link">Main</a>
+      <a href="/collections/all" class="nav-link">
+        Category <span class="badge-tag badge-new">NEW</span>
+      </a>
+      <a href="/collections/accessories" class="nav-link">Accessories</a>
+      <a href="/pages/features" class="nav-link">Feature Page</a>
+      <a href="/pages/about-us" class="nav-link">
+        About Us <span class="badge-tag badge-hot">HOT</span>
+      </a>
+      <a href="/blogs/news" class="nav-link">
+        Blog <span class="badge-tag badge-new">NEW</span>
+      </a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <button type="button" class="header-action-btn search-trigger" aria-label="Search">
+        {% render 'icon-search' %}
+      </button>
+
+      <a href="/account" class="header-action-btn" aria-label="Account">
+        {% render 'icon-user' %}
+      </a>
+
+      <a href="/cart" class="header-action-btn cart-trigger" aria-label="Shopping Cart">
+        {% render 'icon-cart' %}
+        <span class="cart-counter">{{ cart.item_count | default: 0 }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Custom Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 220,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 130
+    }
+  ]
+}
+{% endschema %}

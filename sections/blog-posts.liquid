@@ -1,0 +1,83 @@
+<section class="blog-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-tag">{{ section.settings.subtitle | default: 'Our Journal' }}</span>
+      <h2 class="section-title">{{ section.settings.title | default: 'Latest News' }}</h2>
+    </div>
+
+    <div class="blog-grid">
+      <!-- Post 1 -->
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <img src="{{ 'blog-tools.svg' | asset_url }}" alt="Gua Sha Rituals">
+        </div>
+        <div class="blog-content">
+          <span class="blog-date-badge">MAY 12, 2026</span>
+          <h3 class="blog-title">
+            <a href="/blogs/news/art-of-gua-sha">The Art of Gua Sha: Ancient Rituals for Modern Skin Radiance</a>
+          </h3>
+          <p class="blog-excerpt">
+            Discover how facial sculpting with authentic rose quartz enhances microcirculation and lymphatic drainage naturally.
+          </p>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <img src="{{ 'blog-roller.svg' | asset_url }}" alt="Botanical Actives">
+        </div>
+        <div class="blog-content">
+          <span class="blog-date-badge">MAY 08, 2026</span>
+          <h3 class="blog-title">
+            <a href="/blogs/news/botanical-actives">Choosing The Right Botanical Active For Your Skin Type</a>
+          </h3>
+          <p class="blog-excerpt">
+            From cold-pressed rosehip to bakuchiol, learn how clean actives revitalize tired skin without harsh irritation.
+          </p>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="blog-card">
+        <div class="blog-thumb">
+          <img src="{{ 'blog-cream.svg' | asset_url }}" alt="Organic Velvet Creams">
+        </div>
+        <div class="blog-content">
+          <span class="blog-date-badge">APR 29, 2026</span>
+          <h3 class="blog-title">
+            <a href="/blogs/news/cold-pressed-oils">Why Cold-Pressed Oils Outperform Synthetic Lotions</a>
+          </h3>
+          <p class="blog-excerpt">
+            Unlocking nature's lipid profiles for long-lasting hydration, skin elasticity, and resilient barrier health.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Posts",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Our Journal"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Latest News"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Posts"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,152 @@
+<aside class="pdp-sidebar">
+  <!-- Widget 1: Shop By Categories Accordion -->
+  <div class="sidebar-widget">
+    <h4 class="sidebar-widget-title">Shop By Categories</h4>
+    <div class="category-accordion-list">
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span>Fragrances</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <ul class="accordion-sublist" style="display: none; padding-left: 12px; margin-top: 6px; font-size: 0.85rem; color: var(--color-text-muted);">
+          <li style="margin-bottom: 4px;"><a href="/collections/fragrances">Floral Eau de Parfum</a></li>
+          <li style="margin-bottom: 4px;"><a href="/collections/fragrances">Citrus & Wood Mist</a></li>
+          <li><a href="/collections/fragrances">Organic Essential Blends</a></li>
+        </ul>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span>Make up</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <ul class="accordion-sublist" style="display: none; padding-left: 12px; margin-top: 6px; font-size: 0.85rem; color: var(--color-text-muted);">
+          <li style="margin-bottom: 4px;"><a href="/collections/make-up">Illuminating Foundation</a></li>
+          <li style="margin-bottom: 4px;"><a href="/collections/make-up">Precision Eyeliner</a></li>
+          <li><a href="/collections/make-up">Mineral Blush</a></li>
+        </ul>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          <span>Skin care</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <ul class="accordion-sublist" style="display: none; padding-left: 12px; margin-top: 6px; font-size: 0.85rem; color: var(--color-text-muted);">
+          <li style="margin-bottom: 4px;"><a href="/collections/face-care">Cleansers & Toners</a></li>
+          <li style="margin-bottom: 4px;"><a href="/collections/face-care">Active Serums</a></li>
+          <li><a href="/collections/face-care">Hydrating Creams</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Widget 2: Featured Collection Mini-Products -->
+  <div class="sidebar-widget">
+    <h4 class="sidebar-widget-title">Featured Collection</h4>
+    <div class="mini-product-list">
+      <div class="mini-product-item">
+        <div class="mini-product-thumb">
+          <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Smooth Essen">
+        </div>
+        <div class="mini-product-info">
+          <h5><a href="/products/smooth-essen">Smooth Essen</a></h5>
+          <div class="mini-product-price">$35.73</div>
+          {% render 'rating-stars' %}
+        </div>
+      </div>
+
+      <div class="mini-product-item">
+        <div class="mini-product-thumb">
+          <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Urban Decoy">
+        </div>
+        <div class="mini-product-info">
+          <h5><a href="/products/urban-decoy">Urban Decoy</a></h5>
+          <div class="mini-product-price">$45.00</div>
+          {% render 'rating-stars' %}
+        </div>
+      </div>
+
+      <div class="mini-product-item">
+        <div class="mini-product-thumb">
+          <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Smoothing Essence">
+        </div>
+        <div class="mini-product-info">
+          <h5><a href="/products/smoothing-essence">Smoothing Essence</a></h5>
+          <div class="mini-product-price">
+            <span style="color: var(--color-text-muted); text-decoration: line-through; font-size: 0.75rem;">$65.00</span>
+            $50.67
+          </div>
+          {% render 'rating-stars' %}
+        </div>
+      </div>
+    </div>
+    <a href="/collections/all" class="sidebar-view-all">VIEW ALL PRODUCTS &rarr;</a>
+  </div>
+
+  <!-- Widget 3: Promo Card (Winter Care Dry Skin Oil) -->
+  <div class="sidebar-promo-card">
+    <div class="promo-tag-cursive">Winter Care</div>
+    <div class="promo-title-bold">Dry Skin Oil</div>
+    <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 10px;">
+      Deep nourishment for cold season radiance
+    </p>
+    <img src="{{ 'product-dropper.svg' | asset_url }}" alt="Winter Care Dry Skin Oil">
+    <div style="margin-top: 12px;">
+      <a href="/products/dry-skin-oil" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.75rem;">BUY NOW</a>
+    </div>
+  </div>
+
+  <!-- Widget 4: Special Collection Mini-Products -->
+  <div class="sidebar-widget">
+    <h4 class="sidebar-widget-title">Special Collection</h4>
+    <div class="mini-product-list">
+      <div class="mini-product-item">
+        <div class="mini-product-thumb">
+          <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Anti-aging Cream">
+        </div>
+        <div class="mini-product-info">
+          <h5><a href="/products/anti-aging-cream">Anti-Aging Cream</a></h5>
+          <div class="mini-product-price">
+            <span style="color: var(--color-text-muted); text-decoration: line-through; font-size: 0.75rem;">$39.00</span>
+            $34.20
+          </div>
+          {% render 'rating-stars' %}
+        </div>
+      </div>
+
+      <div class="mini-product-item">
+        <div class="mini-product-thumb">
+          <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Boba Foundation">
+        </div>
+        <div class="mini-product-info">
+          <h5><a href="/products/boba-foundation">Boba Foundation</a></h5>
+          <div class="mini-product-price">
+            <span style="color: var(--color-text-muted); text-decoration: line-through; font-size: 0.75rem;">$45.00</span>
+            $41.50
+          </div>
+          {% render 'rating-stars' %}
+        </div>
+      </div>
+
+      <div class="mini-product-item">
+        <div class="mini-product-thumb">
+          <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Cologne Spray">
+        </div>
+        <div class="mini-product-info">
+          <h5><a href="/products/cologne-spray">Cologne Spray</a></h5>
+          <div class="mini-product-price">$75.00</div>
+          {% render 'rating-stars' %}
+        </div>
+      </div>
+    </div>
+    <a href="/collections/all" class="sidebar-view-all">VIEW ALL PRODUCTS &rarr;</a>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Product Sidebar",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,137 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Glow. Organic Skincare & Cosmetics",
+    "theme_version": "1.0.0",
+    "theme_author": "Antigravity AI",
+    "theme_documentation_url": "https://github.com",
+    "theme_support_url": "https://github.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Accent (Olive/Sage)",
+        "default": "#7d8c55"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Accent (Terracotta/Warm)",
+        "default": "#c5997e"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_main",
+        "label": "Background Light",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_subtle",
+        "label": "Background Subtle Cream",
+        "default": "#fbf9f5"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark Contrast (Footer/Buttons)",
+        "default": "#1a1a1a"
+      },
+      {
+        "type": "color",
+        "id": "color_text_main",
+        "label": "Main Text Color",
+        "default": "#2b2b2b"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Muted Text Color",
+        "default": "#767676"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Borders and Dividers",
+        "default": "#ece7e1"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "assistant_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter Link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook Link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram Link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest Link"
+      }
+    ]
+  },
+  {
+    "name": "Store Identity & Features",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Custom Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 60,
+        "max": 250,
+        "step": 10,
+        "unit": "px",
+        "label": "Custom Logo Width",
+        "default": 130
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_quick_buy",
+        "label": "Enable Quick Buy on Product Cards",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_urgency_bar",
+        "label": "Show Stock Urgency Counter",
+        "default": true
+      }
+    ]
+  }
+]

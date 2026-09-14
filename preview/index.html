@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glow. — Luxury Skincare &amp; Cosmetics Store</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/glow-theme.css">
+  </head>
+
+  <body>
+    <!-- 1. Top Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="container">
+        <span>20% OFF FOR COSMETIC GLOW STORE!</span>
+        <button type="button" class="close-btn" aria-label="Close">&times;</button>
+      </div>
+    </div>
+
+    <!-- 2. Header -->
+    <header class="site-header">
+      <!-- Utility Bar -->
+      <div class="header-top">
+        <div class="container header-top-inner">
+          <div class="header-top-left">
+            <a href="product.html">Wishlist</a>
+            <a href="#contact">Contact</a>
+            <select class="header-select">
+              <option>USD $</option>
+              <option>EUR €</option>
+            </select>
+            <select class="header-select">
+              <option>English</option>
+              <option>Español</option>
+            </select>
+          </div>
+          <div class="header-top-right">
+            <span>Special Offer: Free delivery on all orders over $50</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Navigation Bar -->
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo-brand">Glow<span>.</span></a>
+
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Main</a>
+          <a href="#trending" class="nav-link">Category <span class="badge-tag badge-new">NEW</span></a>
+          <a href="product.html" class="nav-link">Accessories</a>
+          <a href="#hotspots" class="nav-link">Feature Page</a>
+          <a href="#unique" class="nav-link">About Us <span class="badge-tag badge-hot">HOT</span></a>
+          <a href="#journal" class="nav-link">Blog <span class="badge-tag badge-new">NEW</span></a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="header-action-btn" title="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <a href="product.html" class="header-action-btn" title="Account">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="product.html" class="header-action-btn" title="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-counter">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. Hero Section (Screenshot 2) -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-tag">Natural</span>
+          <h1 class="hero-title">Face Skin Care</h1>
+          <p class="hero-desc">
+            Experience clean, conscious beauty powered by active plant botanicals and certified organic formulas designed to revitalize your natural skin glow.
+          </p>
+          <a href="product.html" class="btn btn-primary">SHOP NOW</a>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-image-wrapper">
+            <img src="../assets/hero-beauty-model.svg" alt="Face Skin Care Model">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Value Propositions Bar -->
+    <section class="features-bar">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🚚</div>
+            <div class="feature-info">
+              <h4>Free Delivery</h4>
+              <p>Free shipping on orders over $50</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🎧</div>
+            <div class="feature-info">
+              <h4>24/7 Support</h4>
+              <p>Instant expert skincare advice</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🌿</div>
+            <div class="feature-info">
+              <h4>100% Organic</h4>
+              <p>Certified pure botanical actives</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🛡️</div>
+            <div class="feature-info">
+              <h4>Secure Payment</h4>
+              <p>Safe SSL encrypted checkout</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Trending Products Grid -->
+    <section class="products-section" id="trending">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-tag">New Season</span>
+          <h2 class="section-title">Trending Products</h2>
+
+          <div class="category-tabs">
+            <button type="button" class="category-tab-btn active" data-category="all">All Products</button>
+            <button type="button" class="category-tab-btn" data-category="face-care">Face Care</button>
+            <button type="button" class="category-tab-btn" data-category="body-care">Body Care</button>
+            <button type="button" class="category-tab-btn" data-category="accessories">Accessories</button>
+          </div>
+        </div>
+
+        <div class="product-grid trending-grid">
+          <!-- Card 1 -->
+          <div class="product-card" data-category="face-care">
+            <div class="card-media-wrap">
+              <span class="card-badge">NEW</span>
+              <a href="product.html">
+                <img src="../assets/product-bottle-green.svg" alt="Smooth Essen">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="product.html">Smooth Essen</a></h3>
+              <div class="rating-stars">★★★★★</div>
+              <div class="card-prices"><span class="price-current">$35.73</span></div>
+              <div class="card-swatches">
+                <span class="swatch-circle" style="background-color: #e53935;"></span>
+                <span class="swatch-circle" style="background-color: #1a1a1a;"></span>
+                <span class="swatch-circle" style="background-color: #fb8c00;"></span>
+                <span class="swatch-circle" style="background-color: #43a047;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="product-card" data-category="face-care">
+            <div class="card-media-wrap">
+              <a href="product.html">
+                <img src="../assets/product-bottle-blue.svg" alt="Urban Decoy">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="product.html">Urban Decoy</a></h3>
+              <div class="rating-stars">★★★★★</div>
+              <div class="card-prices"><span class="price-current">$45.00</span></div>
+              <div class="card-swatches">
+                <span class="swatch-circle" style="background-color: #5fa0bc;"></span>
+                <span class="swatch-circle" style="background-color: #f59e0b;"></span>
+                <span class="swatch-circle" style="background-color: #1a1a1a;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="product-card" data-category="body-care">
+            <div class="card-media-wrap">
+              <span class="card-badge">SALE</span>
+              <a href="product.html">
+                <img src="../assets/product-bottle-rose.svg" alt="Smoothing Essence">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="product.html">Smoothing Essence</a></h3>
+              <div class="rating-stars">★★★★★</div>
+              <div class="card-prices">
+                <span class="price-compare">$65.00</span>
+                <span class="price-current">$50.67</span>
+              </div>
+              <div class="card-swatches">
+                <span class="swatch-circle" style="background-color: #fdd835;"></span>
+                <span class="swatch-circle" style="background-color: #f48fb1;"></span>
+                <span class="swatch-circle" style="background-color: #1e88e5;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="product-card" data-category="accessories">
+            <div class="card-media-wrap">
+              <a href="product.html">
+                <img src="../assets/product-bottle-amber.svg" alt="Modern Eye Brush">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="product.html">Modern Eye Brush</a></h3>
+              <div class="rating-stars">★★★★★</div>
+              <div class="card-prices"><span class="price-current">$61.45</span></div>
+              <div class="card-swatches">
+                <span class="swatch-circle" style="background-color: #be9354;"></span>
+                <span class="swatch-circle" style="background-color: #1a1a1a;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="product.html" class="btn btn-primary">VIEW ALL PRODUCTS</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Split Feature (Screenshot 2: "What makes us unique?") -->
+    <section class="split-feature-section" id="unique">
+      <div class="container split-feature-grid">
+        <div class="split-feature-media">
+          <img src="../assets/split-comparison.svg" alt="Split Face Comparison">
+        </div>
+
+        <div class="split-feature-content">
+          <span class="feature-tag-badge">NATURAL CARE</span>
+          <h2 class="section-title">What makes us unique?</h2>
+          <p class="section-desc" style="margin: 0 0 20px 0;">
+            Our clinical approach combines botanical purity with advanced cosmetic science, ensuring optimal skin repair and sustained cellular hydration.
+          </p>
+
+          <div class="benefit-list">
+            <div class="benefit-item">
+              <div class="benefit-check-icon">✓</div>
+              <div class="benefit-text">
+                <h5>100% Pure Botanical Actives</h5>
+                <p>Formulated without harsh chemicals, parabens, or synthetic fragrance.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-check-icon">✓</div>
+              <div class="benefit-text">
+                <h5>Clinically Tested &amp; Proven</h5>
+                <p>98% of users observed visible skin rejuvenation within 14 days.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-check-icon">✓</div>
+              <div class="benefit-text">
+                <h5>Sustainable Eco Glass Bottles</h5>
+                <p>Packaged in recyclable UV-protected glass to preserve active potency.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="product.html" class="btn btn-primary">READ MORE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Promo Banner ("Body Care Product") -->
+    <section class="promo-banner">
+      <div class="container promo-grid">
+        <div class="promo-media">
+          <img src="../assets/body-care-banner.svg" alt="Body Care Product">
+        </div>
+        <div class="promo-content">
+          <span class="feature-tag-badge">NATURAL</span>
+          <h2 class="section-title">Body Care Product</h2>
+          <p class="section-desc">
+            Infused with cold-pressed botanical oils and natural ceramides to nourish your skin barrier with all-day moisture.
+          </p>
+          <a href="product.html" class="btn btn-primary">DISCOVER MORE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Product Hotspots & Doctor Testimonial -->
+    <section class="hotspots-section" id="hotspots">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-tag">Science &amp; Nature</span>
+          <h2 class="section-title">Pure Organic Perfection</h2>
+        </div>
+
+        <div class="hotspots-grid">
+          <div class="hotspot-stage">
+            <img src="../assets/product-bottle-rose.svg" alt="Glow Featured Essence">
+            <div class="hotspot-marker hotspot-top-left">
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-label">Hydrating Formula</div>
+            </div>
+            <div class="hotspot-marker hotspot-top-right">
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-label">Natural Vitamin C</div>
+            </div>
+            <div class="hotspot-marker hotspot-bottom-left">
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-label">Zero Parabens</div>
+            </div>
+            <div class="hotspot-marker hotspot-bottom-right">
+              <div class="hotspot-dot"></div>
+              <div class="hotspot-label">Sensitive Skin Safe</div>
+            </div>
+          </div>
+
+          <div class="expert-card">
+            <img src="../assets/doctor-portrait.svg" alt="Dr. Angela Russell" class="expert-avatar">
+            <h3 class="expert-name">Dr. Angela Russell</h3>
+            <p class="expert-role">Lead Clinical Dermatologist</p>
+            <p class="expert-quote">
+              “This organic formulation surpasses standard cosmetic standards. It works synergistically to deeply nourish the lipid barrier, replenishing natural moisture without clogging pores.”
+            </p>
+            <div class="rating-stars" style="justify-content: center; margin-bottom: 16px;">★★★★★</div>
+            <a href="product.html" class="btn btn-outline">CLINICAL STUDY</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Deal Of The Day / In-Page PDP Showcase -->
+    <section class="deal-section">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-tag">Special Offer</span>
+          <h2 class="section-title">Deal Of The Day</h2>
+        </div>
+
+        <div class="pdp-main-grid">
+          <!-- Gallery -->
+          <div class="gallery-container">
+            <div class="gallery-main-view">
+              <img src="../assets/product-bottle-rose.svg" alt="Featured Deal Product">
+            </div>
+            <div class="gallery-thumbs-row">
+              <button type="button" class="gallery-nav-arrow prev">&lt;</button>
+              <button type="button" class="gallery-thumb-btn active" data-src="../assets/product-bottle-rose.svg">
+                <img src="../assets/product-bottle-rose.svg" alt="Thumb 1">
+              </button>
+              <button type="button" class="gallery-thumb-btn" data-src="../assets/product-bottle-green.svg">
+                <img src="../assets/product-bottle-green.svg" alt="Thumb 2">
+              </button>
+              <button type="button" class="gallery-thumb-btn" data-src="../assets/product-bottle-blue.svg">
+                <img src="../assets/product-bottle-blue.svg" alt="Thumb 3">
+              </button>
+              <button type="button" class="gallery-thumb-btn" data-src="../assets/product-bottle-amber.svg">
+                <img src="../assets/product-bottle-amber.svg" alt="Thumb 4">
+              </button>
+              <button type="button" class="gallery-nav-arrow next">&gt;</button>
+            </div>
+          </div>
+
+          <!-- PDP Meta -->
+          <div class="pdp-info-wrap">
+            <h2 class="pdp-title">Smoothing Essence</h2>
+            <div class="pdp-rating-row">
+              <div class="rating-stars">★★★★★</div>
+              <span style="font-size: 0.85rem; color: var(--color-text-muted);">(4.9/5 from 128 reviews)</span>
+            </div>
+            <div class="pdp-price-row">
+              <span class="pdp-price-large">$50.67</span>
+              <span class="price-compare" style="font-size: 1.1rem;">$65.00</span>
+              <span class="card-badge" style="position: static; margin-left: 6px;">SAVE 22%</span>
+            </div>
+            <div class="pdp-meta-row">
+              <div><strong>Vendor:</strong> Glow Labs Organic</div>
+              <div><strong>Product Type:</strong> Facial Essence</div>
+            </div>
+
+            <!-- Stock Urgency Bar -->
+            <div class="stock-urgency-box">
+              <div class="stock-text">Hurry! only 4 units left in stock!</div>
+              <div class="stock-bar-track">
+                <div class="stock-bar-fill" style="width: 25%;"></div>
+              </div>
+            </div>
+
+            <!-- Swatches -->
+            <div class="variant-selector-group">
+              <span class="variant-label">Color: <strong class="selected-color-name">Rose Glow</strong></span>
+              <div class="pdp-swatches">
+                <button type="button" class="pdp-swatch-btn active" style="background-color: #a47d77;" data-color="Rose Glow"></button>
+                <button type="button" class="pdp-swatch-btn" style="background-color: #7d8c55;" data-color="Olive Herbal"></button>
+                <button type="button" class="pdp-swatch-btn" style="background-color: #5fa0bc;" data-color="Aqua Mist"></button>
+                <button type="button" class="pdp-swatch-btn" style="background-color: #be9354;" data-color="Golden Radiance"></button>
+              </div>
+            </div>
+
+            <!-- Quantity & Actions -->
+            <div class="pdp-purchase-row">
+              <div class="quantity-stepper">
+                <button type="button" class="qty-btn qty-minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button type="button" class="qty-btn qty-plus">+</button>
+              </div>
+            </div>
+
+            <div class="pdp-btn-group">
+              <button type="button" class="btn btn-add-cart">ADD TO CART</button>
+              <button type="button" class="btn btn-buy-now">BUY IT NOW</button>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-grid">
+              <div class="trust-item">
+                <div class="trust-icon">📦</div>
+                <div class="trust-text">
+                  <h6>Free Delivery</h6>
+                  <p>Free tracked express shipping</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">💳</div>
+                <div class="trust-text">
+                  <h6>Way To Buy</h6>
+                  <p>Flexible installments &amp; Klarna</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">🌿</div>
+                <div class="trust-text">
+                  <h6>Personal Session</h6>
+                  <p>Free beauty consultation</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">🎁</div>
+                <div class="trust-text">
+                  <h6>Gift Voucher</h6>
+                  <p>Includes complimentary samples</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specifications Table -->
+        <div style="margin-top: 50px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 16px;">Product Specifications</h3>
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <th>Net Volume</th>
+                <td>100ml / 3.4 fl. oz e</td>
+              </tr>
+              <tr>
+                <th>Skin Compatibility</th>
+                <td>All skin types, including sensitive and blemish-prone</td>
+              </tr>
+              <tr>
+                <th>Key Ingredients</th>
+                <td>Niacinamide, Hyaluronic Acid, Camellia Sinensis Leaf, Jojoba Oil</td>
+              </tr>
+              <tr>
+                <th>Application</th>
+                <td>Gently pat 3-4 drops onto cleansed face and neck morning and evening</td>
+              </tr>
+              <tr>
+                <th>Origin &amp; Certification</th>
+                <td>Crafted in California. USDA Certified Organic, Leaping Bunny Certified</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Brand Logos Bar -->
+    <div class="brand-logos-bar">
+      <div class="container">
+        <div class="brand-logos-flex">
+          <span class="brand-logo-item">VOGUE</span>
+          <span class="brand-logo-item">ELLE</span>
+          <span class="brand-logo-item">GLAMOUR</span>
+          <span class="brand-logo-item">BAZAAR</span>
+          <span class="brand-logo-item">ALLURE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Latest News / Blog Section -->
+    <section class="blog-section" id="journal">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-tag">Our Journal</span>
+          <h2 class="section-title">Latest News</h2>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-thumb">
+              <img src="../assets/blog-tools.svg" alt="Gua Sha Rituals">
+            </div>
+            <div class="blog-content">
+              <span class="blog-date-badge">MAY 12, 2026</span>
+              <h3 class="blog-title"><a href="product.html">The Art of Gua Sha: Ancient Rituals for Modern Radiance</a></h3>
+              <p class="blog-excerpt">Discover how facial sculpting with authentic rose quartz enhances microcirculation and lymphatic drainage naturally.</p>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-thumb">
+              <img src="../assets/blog-roller.svg" alt="Botanical Actives">
+            </div>
+            <div class="blog-content">
+              <span class="blog-date-badge">MAY 08, 2026</span>
+              <h3 class="blog-title"><a href="product.html">Choosing The Right Botanical Active For Your Skin Type</a></h3>
+              <p class="blog-excerpt">From cold-pressed rosehip to bakuchiol, learn how clean actives revitalize tired skin without harsh irritation.</p>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-thumb">
+              <img src="../assets/blog-cream.svg" alt="Organic Velvet Creams">
+            </div>
+            <div class="blog-content">
+              <span class="blog-date-badge">APR 29, 2026</span>
+              <h3 class="blog-title"><a href="product.html">Why Cold-Pressed Oils Outperform Synthetic Lotions</a></h3>
+              <p class="blog-excerpt">Unlocking nature's lipid profiles for long-lasting hydration, skin elasticity, and resilient barrier health.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Newsletter Subscription -->
+    <section class="newsletter-section">
+      <div class="container">
+        <span class="section-tag">Stay Connected</span>
+        <h2 class="section-title">Subscribe &amp; Get Discount</h2>
+        <p class="section-desc">
+          Join our beauty club and receive 20% off your first organic skincare order, plus early VIP access to new releases.
+        </p>
+
+        <form class="newsletter-form-wrapper" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Glow.!');">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 13. Dark Footer -->
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="logo-brand" style="color: #ffffff; margin-bottom: 16px;">Glow<span style="color: var(--color-primary);">.</span></a>
+            <p>Pure, botanical skincare engineered for everyday skin luminosity. Ethical, cruelty-free, and dermatologically tested.</p>
+            <div class="social-icons-row">
+              <a href="#" class="social-circle-btn">f</a>
+              <a href="#" class="social-circle-btn">t</a>
+              <a href="#" class="social-circle-btn">in</a>
+              <a href="#" class="social-circle-btn">p</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Information</h4>
+            <div class="footer-links-list">
+              <a href="product.html">About Us</a>
+              <a href="product.html">Delivery Information</a>
+              <a href="product.html">Privacy Policy</a>
+              <a href="product.html">Terms &amp; Conditions</a>
+              <a href="product.html">Advanced Search</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Categories</h4>
+            <div class="footer-links-list">
+              <a href="product.html">Face Care</a>
+              <a href="product.html">Body Care</a>
+              <a href="product.html">Fragrances</a>
+              <a href="product.html">Makeup Essentials</a>
+              <a href="product.html">Accessories &amp; Tools</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Customer Care</h4>
+            <p style="margin-bottom: 8px;">📍 450 Sunset Blvd, Suite 200, Beverly Hills, CA</p>
+            <p style="margin-bottom: 8px;">📞 +1 (800) 456-7890</p>
+            <p style="margin-bottom: 8px;">✉️ support@glowskinstore.com</p>
+            <p>🕒 Mon - Fri: 9:00 AM - 6:00 PM EST</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-inner">
+            <div>© 2026 Glow Cosmetic Store. All Rights Reserved. Built with Online Store 2.0.</div>
+            <div class="payment-badges-row">
+              <span class="payment-badge" style="color: #1a1a1a; font-weight: 700; font-size: 0.75rem;">VISA</span>
+              <span class="payment-badge" style="color: #ea1d25; font-weight: 700; font-size: 0.75rem;">Mastercard</span>
+              <span class="payment-badge" style="color: #003087; font-weight: 700; font-size: 0.75rem;">PayPal</span>
+              <span class="payment-badge" style="color: #000000; font-weight: 700; font-size: 0.75rem;"> Pay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/glow-theme.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<div class="container" style="padding: 60px 0; max-width: 800px;">
+  <h1 class="section-title" style="text-align: center; margin-bottom: 30px;">Shopping Bag</h1>
+
+  {%- if cart.item_count > 0 -%}
+    <form action="/cart" method="post">
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border); text-align: left;">
+            <th style="padding: 12px 0;">Product</th>
+            <th style="padding: 12px 0;">Quantity</th>
+            <th style="padding: 12px 0; text-align: right;">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for item in cart.items -%}
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 16px 0; display: flex; align-items: center; gap: 16px;">
+                <img src="{{ item.image | image_url: width: 70 }}" width="70" alt="{{ item.title | escape }}">
+                <div>
+                  <h4 style="margin-bottom: 4px;">{{ item.product.title }}</h4>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted);">{{ item.variant.title }}</p>
+                </div>
+              </td>
+              <td style="padding: 16px 0;">{{ item.quantity }}</td>
+              <td style="padding: 16px 0; text-align: right; font-weight: 600;">{{ item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+
+      <div style="text-align: right;">
+        <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">
+          Subtotal: {{ cart.total_price | money }}
+        </div>
+        <button type="submit" name="checkout" class="btn btn-dark" style="padding: 16px 36px;">PROCEED TO CHECKOUT</button>
+      </div>
+    </form>
+  {%- else -%}
+    <div style="text-align: center; padding: 40px 0;">
+      <p style="color: var(--color-text-muted); margin-bottom: 24px;">Your shopping bag is currently empty.</p>
+      <a href="/collections/all" class="btn btn-primary">EXPLORE OUR COLLECTION</a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Main Cart",
+  "settings": []
+}
+{% endschema %}

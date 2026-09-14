@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smooth Essen — Glow. Luxury Skincare</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/glow-theme.css">
+  </head>
+
+  <body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="container">
+        <span>20% OFF FOR COSMETIC GLOW STORE!</span>
+        <button type="button" class="close-btn" aria-label="Close">&times;</button>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <!-- Utility Bar -->
+      <div class="header-top">
+        <div class="container header-top-inner">
+          <div class="header-top-left">
+            <a href="#">Wishlist</a>
+            <a href="#">Contact</a>
+            <select class="header-select">
+              <option>USD $</option>
+              <option>EUR €</option>
+            </select>
+            <select class="header-select">
+              <option>English</option>
+              <option>Español</option>
+            </select>
+          </div>
+          <div class="header-top-right">
+            <span>Special Offer: Free delivery on all orders over $50</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Navigation Bar -->
+      <div class="container header-main-inner">
+        <a href="index.html" class="logo-brand">Glow<span>.</span></a>
+
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Main</a>
+          <a href="index.html#trending" class="nav-link">Category <span class="badge-tag badge-new">NEW</span></a>
+          <a href="product.html" class="nav-link">Accessories</a>
+          <a href="index.html#hotspots" class="nav-link">Feature Page</a>
+          <a href="index.html#unique" class="nav-link">About Us <span class="badge-tag badge-hot">HOT</span></a>
+          <a href="index.html#journal" class="nav-link">Blog <span class="badge-tag badge-new">NEW</span></a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="header-action-btn" title="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <a href="#" class="header-action-btn" title="Account">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="#" class="header-action-btn" title="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-counter">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main PDP Layout (Screenshot 1: Left Sidebar + Main Content) -->
+    <div class="container pdp-page-layout">
+      <!-- Left Column: Sidebar -->
+      <aside class="pdp-sidebar">
+        <!-- Widget 1: Categories Accordion -->
+        <div class="sidebar-widget">
+          <h4 class="sidebar-widget-title">Shop By Categories</h4>
+          <div class="category-accordion-list">
+            <div class="accordion-item">
+              <div class="accordion-item-header">
+                <span>Fragrances</span>
+                <span class="accordion-arrow">▼</span>
+              </div>
+              <ul class="accordion-sublist" style="display: none; padding-left: 12px; margin-top: 6px; font-size: 0.85rem; color: var(--color-text-muted);">
+                <li style="margin-bottom: 4px;"><a href="#">Floral Eau de Parfum</a></li>
+                <li style="margin-bottom: 4px;"><a href="#">Citrus &amp; Wood Mist</a></li>
+                <li><a href="#">Organic Essential Blends</a></li>
+              </ul>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-item-header">
+                <span>Make up</span>
+                <span class="accordion-arrow">▼</span>
+              </div>
+              <ul class="accordion-sublist" style="display: none; padding-left: 12px; margin-top: 6px; font-size: 0.85rem; color: var(--color-text-muted);">
+                <li style="margin-bottom: 4px;"><a href="#">Illuminating Foundation</a></li>
+                <li style="margin-bottom: 4px;"><a href="#">Precision Eyeliner</a></li>
+                <li><a href="#">Mineral Blush</a></li>
+              </ul>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-item-header">
+                <span>Skin care</span>
+                <span class="accordion-arrow">▼</span>
+              </div>
+              <ul class="accordion-sublist" style="display: none; padding-left: 12px; margin-top: 6px; font-size: 0.85rem; color: var(--color-text-muted);">
+                <li style="margin-bottom: 4px;"><a href="#">Cleansers &amp; Toners</a></li>
+                <li style="margin-bottom: 4px;"><a href="#">Active Serums</a></li>
+                <li><a href="#">Hydrating Creams</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Widget 2: Featured Collection Mini-Products -->
+        <div class="sidebar-widget">
+          <h4 class="sidebar-widget-title">Featured Collection</h4>
+          <div class="mini-product-list">
+            <div class="mini-product-item">
+              <div class="mini-product-thumb">
+                <img src="../assets/product-bottle-green.svg" alt="Smooth Essen">
+              </div>
+              <div class="mini-product-info">
+                <h5><a href="#">Smooth Essen</a></h5>
+                <div class="mini-product-price">$35.73</div>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </div>
+
+            <div class="mini-product-item">
+              <div class="mini-product-thumb">
+                <img src="../assets/product-bottle-blue.svg" alt="Urban Decoy">
+              </div>
+              <div class="mini-product-info">
+                <h5><a href="#">Urban Decoy</a></h5>
+                <div class="mini-product-price">$45.00</div>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </div>
+
+            <div class="mini-product-item">
+              <div class="mini-product-thumb">
+                <img src="../assets/product-bottle-rose.svg" alt="Smoothing Essence">
+              </div>
+              <div class="mini-product-info">
+                <h5><a href="#">Smoothing Essence</a></h5>
+                <div class="mini-product-price">
+                  <span style="color: var(--color-text-muted); text-decoration: line-through; font-size: 0.75rem;">$65.00</span>
+                  $50.67
+                </div>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="sidebar-view-all">VIEW ALL PRODUCTS &rarr;</a>
+        </div>
+
+        <!-- Widget 3: Promo Card (Winter Care Dry Skin Oil) -->
+        <div class="sidebar-promo-card">
+          <div class="promo-tag-cursive">Winter Care</div>
+          <div class="promo-title-bold">Dry Skin Oil</div>
+          <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 10px;">
+            Deep nourishment for cold season radiance
+          </p>
+          <img src="../assets/product-dropper.svg" alt="Winter Care Dry Skin Oil">
+          <div style="margin-top: 12px;">
+            <a href="#" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.75rem;">BUY NOW</a>
+          </div>
+        </div>
+
+        <!-- Widget 4: Special Collection Mini-Products -->
+        <div class="sidebar-widget">
+          <h4 class="sidebar-widget-title">Special Collection</h4>
+          <div class="mini-product-list">
+            <div class="mini-product-item">
+              <div class="mini-product-thumb">
+                <img src="../assets/product-bottle-green.svg" alt="Anti-aging Cream">
+              </div>
+              <div class="mini-product-info">
+                <h5><a href="#">Anti-Aging Cream</a></h5>
+                <div class="mini-product-price">
+                  <span style="color: var(--color-text-muted); text-decoration: line-through; font-size: 0.75rem;">$39.00</span>
+                  $34.20
+                </div>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </div>
+
+            <div class="mini-product-item">
+              <div class="mini-product-thumb">
+                <img src="../assets/product-bottle-blue.svg" alt="Boba Foundation">
+              </div>
+              <div class="mini-product-info">
+                <h5><a href="#">Boba Foundation</a></h5>
+                <div class="mini-product-price">
+                  <span style="color: var(--color-text-muted); text-decoration: line-through; font-size: 0.75rem;">$45.00</span>
+                  $41.50
+                </div>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </div>
+
+            <div class="mini-product-item">
+              <div class="mini-product-thumb">
+                <img src="../assets/product-bottle-amber.svg" alt="Cologne Spray">
+              </div>
+              <div class="mini-product-info">
+                <h5><a href="#">Cologne Spray</a></h5>
+                <div class="mini-product-price">$75.00</div>
+                <div class="rating-stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="sidebar-view-all">VIEW ALL PRODUCTS &rarr;</a>
+        </div>
+      </aside>
+
+      <!-- Right Column: Main PDP Content Area -->
+      <div class="pdp-main-content">
+        <div class="pdp-main-grid">
+          <!-- Gallery -->
+          <div class="gallery-container">
+            <div class="gallery-main-view">
+              <img src="../assets/product-bottle-green.svg" alt="Smooth Essen Main View" id="pdpMainImage">
+            </div>
+
+            <div class="gallery-thumbs-row">
+              <button type="button" class="gallery-nav-arrow prev">&lt;</button>
+              <button type="button" class="gallery-thumb-btn active" data-src="../assets/product-bottle-green.svg">
+                <img src="../assets/product-bottle-green.svg" alt="Thumb 1">
+              </button>
+              <button type="button" class="gallery-thumb-btn" data-src="../assets/product-bottle-rose.svg">
+                <img src="../assets/product-bottle-rose.svg" alt="Thumb 2">
+              </button>
+              <button type="button" class="gallery-thumb-btn" data-src="../assets/product-bottle-blue.svg">
+                <img src="../assets/product-bottle-blue.svg" alt="Thumb 3">
+              </button>
+              <button type="button" class="gallery-thumb-btn" data-src="../assets/product-bottle-amber.svg">
+                <img src="../assets/product-bottle-amber.svg" alt="Thumb 4">
+              </button>
+              <button type="button" class="gallery-nav-arrow next">&gt;</button>
+            </div>
+          </div>
+
+          <!-- PDP Information -->
+          <div class="pdp-info-wrap">
+            <h1 class="pdp-title">Smooth Essen</h1>
+
+            <div class="pdp-rating-row">
+              <div class="rating-stars">★★★★★</div>
+            </div>
+
+            <div class="pdp-price-row">
+              <span class="pdp-price-large">$35.73</span>
+            </div>
+
+            <div class="pdp-meta-row">
+              <div><strong>Vendor :</strong> glass-labs</div>
+              <div><strong>Product Type :</strong> glow</div>
+            </div>
+
+            <!-- Wishlist & Sizechart -->
+            <div class="pdp-actions-row">
+              <a href="#" class="add-wishlist">♡ Add to Wishlist</a>
+              <a href="#" class="open-sizechart">📏 Sizechart</a>
+            </div>
+
+            <!-- Stock Urgency Bar -->
+            <div class="stock-urgency-box">
+              <div class="stock-text">Hurry! only 4 units left in stock!</div>
+              <div class="stock-bar-track">
+                <div class="stock-bar-fill" style="width: 25%;"></div>
+              </div>
+            </div>
+
+            <!-- Color Swatches -->
+            <div class="variant-selector-group">
+              <span class="variant-label">Color: <strong class="selected-color-name">Red</strong></span>
+              <div class="pdp-swatches">
+                <button type="button" class="pdp-swatch-btn active" style="background-color: #e53935;" data-color="Red" aria-label="Red"></button>
+                <button type="button" class="pdp-swatch-btn" style="background-color: #1a1a1a;" data-color="Black" aria-label="Black"></button>
+                <button type="button" class="pdp-swatch-btn" style="background-color: #fb8c00;" data-color="Orange" aria-label="Orange"></button>
+                <button type="button" class="pdp-swatch-btn" style="background-color: #43a047;" data-color="Green" aria-label="Green"></button>
+              </div>
+            </div>
+
+            <!-- Quantity & Actions -->
+            <div class="pdp-purchase-row">
+              <div class="quantity-stepper">
+                <button type="button" class="qty-btn qty-minus">-</button>
+                <input type="text" class="qty-input" value="1" readonly>
+                <button type="button" class="qty-btn qty-plus">+</button>
+              </div>
+            </div>
+
+            <div class="pdp-btn-group">
+              <button type="button" class="btn btn-add-cart">ADD TO CART</button>
+              <button type="button" class="btn btn-buy-now">BUY IT NOW</button>
+            </div>
+
+            <!-- Trust Features 2x2 Grid -->
+            <div class="trust-grid">
+              <div class="trust-item">
+                <div class="trust-icon">📦</div>
+                <div class="trust-text">
+                  <h6>Free Delivery</h6>
+                  <p>Lorem ipsum dummy</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">₹</div>
+                <div class="trust-text">
+                  <h6>Way To Buy</h6>
+                  <p>Lorem ipsum dummy</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">👤</div>
+                <div class="trust-text">
+                  <h6>Personal Session</h6>
+                  <p>Lorem ipsum dummy</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">🎁</div>
+                <div class="trust-text">
+                  <h6>Gift Voucher</h6>
+                  <p>Lorem ipsum dummy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion / Tabs Section -->
+        <div class="pdp-tabs-section">
+          <div class="pdp-tab-nav">
+            <button type="button" class="tab-nav-btn active" data-tab="tab-desc">DESCRIPTION</button>
+            <button type="button" class="tab-nav-btn" data-tab="tab-reviews">REVIEW TAB</button>
+            <button type="button" class="tab-nav-btn" data-tab="tab-shipping">SHIPPING &amp; RETURNS</button>
+            <button type="button" class="tab-nav-btn" data-tab="tab-custom">CUSTOM TAB</button>
+          </div>
+
+          <!-- Description Tab -->
+          <div class="pdp-tab-pane active" id="tab-desc">
+            <p style="margin-bottom: 16px;">
+              Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessories with a straw hat and you’re ready for summer!
+            </p>
+
+            <h4>Sample Unordered List</h4>
+            <ul>
+              <li>Commodous in tempor ullamcorper minusculis</li>
+              <li>Pellentesque vitae neque mattis urna mattis laoreet.</li>
+              <li>Vivamus sit amet purus justo.</li>
+              <li>Proin molestie egestas orci ac suscipit risus posuere loremou.</li>
+            </ul>
+
+            <h4>Sample Ordered List</h4>
+            <ol>
+              <li>Commodous in tempor ullamcorper minusculis</li>
+              <li>Pellentesque vitae neque mattis urna mattis laoreet.</li>
+              <li>Vivamus sit amet purus justo.</li>
+              <li>Proin molestie egestas orci ac suscipit risus posuere loremou.</li>
+            </ol>
+
+            <h4>Sample Paragraph Text</h4>
+            <blockquote style="font-style: italic; background: #fdfbf7; padding: 14px 20px; border-left: 3px solid var(--color-secondary); margin-top: 10px; border-radius: 4px;">
+              Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessories with a straw hat and you’re ready for summer! Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit.
+            </blockquote>
+          </div>
+
+          <!-- Reviews Tab -->
+          <div class="pdp-tab-pane" id="tab-reviews">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+              <div>
+                <h4 style="margin: 0;">Customer Reviews</h4>
+                <div class="rating-stars">★★★★★</div>
+                <span style="font-size: 0.85rem; color: var(--color-text-muted);">Based on 48 genuine reviews</span>
+              </div>
+              <button type="button" class="btn btn-outline" style="padding: 8px 16px;">Write a Review</button>
+            </div>
+            <p style="color: var(--color-text-muted);">
+              “Incredible texture and absorption! My skin has never felt softer or more hydrated throughout dry season.” — <em>Sarah L.</em>
+            </p>
+          </div>
+
+          <!-- Shipping Tab -->
+          <div class="pdp-tab-pane" id="tab-shipping">
+            <h4>Shipping Policy</h4>
+            <p>Standard delivery takes 3-5 business days. We offer free express shipping on all domestic orders over $50.</p>
+            <h4 style="margin-top: 14px;">30-Day Happiness Guarantee</h4>
+            <p>If you are not completely satisfied with your botanical skincare product, return it within 30 days for a full refund or exchange.</p>
+          </div>
+
+          <!-- Custom Tab -->
+          <div class="pdp-tab-pane" id="tab-custom">
+            <h4>Clean Beauty Pledge</h4>
+            <p>
+              All Glow formulas are strictly formulated without parabens, sulfates, phthalates, synthetic dyes, or artificial fragrances. Verified by independent lab testing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products Section (Screenshot 1: "Related Products New Season.") -->
+    <section class="related-products-section">
+      <div class="container">
+        <div class="related-title-box">
+          <div class="section-tag">Related Products</div>
+          <h2 class="section-title">New Season.</h2>
+        </div>
+
+        <div class="product-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 960px; margin: 0 auto;">
+          <!-- Card 1 -->
+          <div class="product-card">
+            <div class="card-media-wrap">
+              <span class="card-badge" style="border-radius: 50%; width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 0.6rem;">SALE</span>
+              <a href="#">
+                <img src="../assets/product-bottle-amber.svg" alt="Precision Eyeliner">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="#">Precision Eyeliner</a></h3>
+              <div class="card-prices">
+                <span class="price-compare">$50.15</span>
+                <span class="price-current">$40.07</span>
+              </div>
+              <div class="card-swatches">
+                <span class="swatch-circle" style="background-color: #6a1b9a;"></span>
+                <span class="swatch-circle" style="background-color: #1a1a1a;"></span>
+                <span class="swatch-circle" style="background-color: #e53935;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="product-card">
+            <div class="card-media-wrap">
+              <span class="card-badge" style="border-radius: 50%; width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 0.6rem;">SALE</span>
+              <a href="#">
+                <img src="../assets/product-bottle-rose.svg" alt="Smoothing Essence">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="#">Smoothing Essence</a></h3>
+              <div class="card-prices">
+                <span class="price-compare">$65.00</span>
+                <span class="price-current">$50.67</span>
+              </div>
+              <div class="card-swatches">
+                <span class="swatch-circle" style="background-color: #fdd835;"></span>
+                <span class="swatch-circle" style="background-color: #f48fb1;"></span>
+                <span class="swatch-circle" style="background-color: #1e88e5;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="product-card">
+            <div class="card-media-wrap">
+              <a href="#">
+                <img src="../assets/product-bottle-amber.svg" alt="Modern Eye Brush">
+              </a>
+              <div class="card-quick-actions">
+                <button type="button" class="action-icon-btn wishlist" title="Wishlist">♡</button>
+                <button type="button" class="action-icon-btn quickview" title="Quick View">🔍</button>
+                <button type="button" class="action-icon-btn cart" title="Add to Cart">👜</button>
+              </div>
+            </div>
+            <div class="card-details">
+              <h3 class="product-card-title"><a href="#">Modern Eye Brush</a></h3>
+              <div class="card-prices">
+                <span class="price-current">$61.45</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="logo-brand" style="color: #ffffff; margin-bottom: 16px;">Glow<span style="color: var(--color-primary);">.</span></a>
+            <p>Pure, botanical skincare engineered for everyday skin luminosity. Ethical, cruelty-free, and dermatologically tested.</p>
+            <div class="social-icons-row">
+              <a href="#" class="social-circle-btn">f</a>
+              <a href="#" class="social-circle-btn">t</a>
+              <a href="#" class="social-circle-btn">in</a>
+              <a href="#" class="social-circle-btn">p</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Information</h4>
+            <div class="footer-links-list">
+              <a href="#">About Us</a>
+              <a href="#">Delivery Information</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms &amp; Conditions</a>
+              <a href="#">Advanced Search</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Categories</h4>
+            <div class="footer-links-list">
+              <a href="#">Face Care</a>
+              <a href="#">Body Care</a>
+              <a href="#">Fragrances</a>
+              <a href="#">Makeup Essentials</a>
+              <a href="#">Accessories &amp; Tools</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Customer Care</h4>
+            <p style="margin-bottom: 8px;">📍 450 Sunset Blvd, Suite 200, Beverly Hills, CA</p>
+            <p style="margin-bottom: 8px;">📞 +1 (800) 456-7890</p>
+            <p style="margin-bottom: 8px;">✉️ support@glowskinstore.com</p>
+            <p>🕒 Mon - Fri: 9:00 AM - 6:00 PM EST</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-inner">
+            <div>© 2026 Glow Cosmetic Store. All Rights Reserved. Built with Online Store 2.0.</div>
+            <div class="payment-badges-row">
+              <span class="payment-badge" style="color: #1a1a1a; font-weight: 700; font-size: 0.75rem;">VISA</span>
+              <span class="payment-badge" style="color: #ea1d25; font-weight: 700; font-size: 0.75rem;">Mastercard</span>
+              <span class="payment-badge" style="color: #003087; font-weight: 700; font-size: 0.75rem;">PayPal</span>
+              <span class="payment-badge" style="color: #000000; font-weight: 700; font-size: 0.75rem;"> Pay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/glow-theme.js"></script>
+  </body>
+</html>

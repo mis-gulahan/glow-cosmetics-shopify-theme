@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "related_products": {
+      "type": "related-products",
+      "settings": {
+        "subtitle": "Related Products",
+        "title": "New Season."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "related_products"
+  ]
+}

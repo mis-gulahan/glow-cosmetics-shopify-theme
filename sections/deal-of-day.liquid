@@ -1,0 +1,180 @@
+<section class="deal-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-tag">{{ section.settings.subtitle | default: 'Special Offer' }}</span>
+      <h2 class="section-title">{{ section.settings.title | default: 'Deal Of The Day' }}</h2>
+    </div>
+
+    <div class="pdp-main-grid">
+      <!-- Gallery Column -->
+      <div class="gallery-container">
+        <div class="gallery-main-view">
+          <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Featured Deal Product" id="dealMainImage">
+        </div>
+
+        <div class="gallery-thumbs-row">
+          <button type="button" class="gallery-nav-arrow prev" aria-label="Previous image">&lt;</button>
+          <button type="button" class="gallery-thumb-btn active" data-src="{{ 'product-bottle-rose.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Thumbnail 1">
+          </button>
+          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-green.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Thumbnail 2">
+          </button>
+          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-blue.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Thumbnail 3">
+          </button>
+          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-amber.svg' | asset_url }}">
+            <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Thumbnail 4">
+          </button>
+          <button type="button" class="gallery-nav-arrow next" aria-label="Next image">&gt;</button>
+        </div>
+      </div>
+
+      <!-- Info Column -->
+      <div class="pdp-info-wrap">
+        <h2 class="pdp-title">{{ section.settings.product_title | default: 'Smoothing Essence' }}</h2>
+        
+        <div class="pdp-rating-row">
+          {% render 'rating-stars' %}
+          <span style="font-size: 0.85rem; color: var(--color-text-muted);">(4.9/5 from 128 reviews)</span>
+        </div>
+
+        <div class="pdp-price-row">
+          <span class="pdp-price-large">$50.67</span>
+          <span class="price-compare" style="font-size: 1.1rem;">$65.00</span>
+          <span class="card-badge" style="position: static; margin-left: 6px;">SAVE 22%</span>
+        </div>
+
+        <div class="pdp-meta-row">
+          <div><strong>Vendor:</strong> Glow Labs Organic</div>
+          <div><strong>Product Type:</strong> Facial Essence</div>
+        </div>
+
+        <!-- Stock Urgency Bar -->
+        <div class="stock-urgency-box">
+          <div class="stock-text">Hurry! only 4 units left in stock!</div>
+          <div class="stock-bar-track">
+            <div class="stock-bar-fill" style="width: 25%;"></div>
+          </div>
+        </div>
+
+        <!-- Variant Swatches -->
+        <div class="variant-selector-group">
+          <span class="variant-label">Color: <strong class="selected-color-name">Rose Glow</strong></span>
+          <div class="pdp-swatches">
+            <button type="button" class="pdp-swatch-btn active" style="background-color: #a47d77;" data-color="Rose Glow" aria-label="Rose Glow"></button>
+            <button type="button" class="pdp-swatch-btn" style="background-color: #7d8c55;" data-color="Olive Herbal" aria-label="Olive Herbal"></button>
+            <button type="button" class="pdp-swatch-btn" style="background-color: #5fa0bc;" data-color="Aqua Mist" aria-label="Aqua Mist"></button>
+            <button type="button" class="pdp-swatch-btn" style="background-color: #be9354;" data-color="Golden Radiance" aria-label="Golden Radiance"></button>
+          </div>
+        </div>
+
+        <!-- Quantity & Buy Buttons -->
+        <div class="pdp-purchase-row">
+          <div class="quantity-stepper">
+            <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">-</button>
+            <input type="text" class="qty-input" value="1" readonly aria-label="Quantity">
+            <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <div class="pdp-btn-group">
+          <button type="button" class="btn btn-add-cart">ADD TO CART</button>
+          <button type="button" class="btn btn-buy-now">BUY IT NOW</button>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">📦</div>
+            <div class="trust-text">
+              <h6>Free Delivery</h6>
+              <p>Free tracked express shipping</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">💳</div>
+            <div class="trust-text">
+              <h6>Way To Buy</h6>
+              <p>Flexible installments & Klarna</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🌿</div>
+            <div class="trust-text">
+              <h6>Personal Session</h6>
+              <p>Free beauty consultation</p>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🎁</div>
+            <div class="trust-text">
+              <h6>Gift Voucher</h6>
+              <p>Includes complimentary samples</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Specifications Table -->
+    <div style="margin-top: 50px;">
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 16px;">Product Specifications</h3>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>Net Volume</th>
+            <td>100ml / 3.4 fl. oz e</td>
+          </tr>
+          <tr>
+            <th>Skin Compatibility</th>
+            <td>All skin types, including sensitive and blemish-prone</td>
+          </tr>
+          <tr>
+            <th>Key Ingredients</th>
+            <td>Niacinamide, Hyaluronic Acid, Camellia Sinensis Leaf, Jojoba Oil</td>
+          </tr>
+          <tr>
+            <th>Application</th>
+            <td>Gently pat 3-4 drops onto cleansed face and neck morning and evening</td>
+          </tr>
+          <tr>
+            <th>Origin & Certification</th>
+            <td>Crafted in California. USDA Certified Organic, Leaping Bunny Certified</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Deal Of The Day",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Special Offer"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Deal Of The Day"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product Title",
+      "default": "Smoothing Essence"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Deal Of The Day"
+    }
+  ]
+}
+{% endschema %}
