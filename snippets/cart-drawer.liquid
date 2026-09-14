@@ -1,0 +1,101 @@
+{% comment %}
+  Ultra-Luxury Slide-Out Ajax Cart Drawer
+  - Smooth side-drawer transition
+  - Free Shipping Progress Bar calculation ($75 threshold)
+  - Interactive item quantity and remove controls
+{% endcomment %}
+
+<div id="LuxuryCartDrawer" class="cart-drawer-overlay" aria-hidden="true">
+  <div class="cart-drawer-backdrop" data-drawer-close></div>
+
+  <div class="cart-drawer-panel" role="dialog" aria-modal="true" aria-label="Shopping Bag">
+    <!-- Header -->
+    <div class="cart-drawer-head">
+      <div class="drawer-title-wrap">
+        <h2 class="cart-drawer-title font-serif">Shopping Bag</h2>
+        <span class="cart-drawer-count" id="DrawerCartCount">({{ cart.item_count | default: 0 }})</span>
+      </div>
+      <button type="button" class="cart-drawer-close-btn" data-drawer-close aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Free Shipping Progress Bar -->
+    {%- assign free_shipping_threshold = 7500 -%}
+    {%- assign cart_total = cart.total_price | default: 0 -%}
+    <div class="free-shipping-bar-box" id="FreeShippingBar">
+      <div class="shipping-message-text" id="ShippingMessageText">
+        {%- if cart_total >= free_shipping_threshold -%}
+          <span class="shipping-unlocked">✨ You have unlocked <strong>Free Complimentary Shipping</strong>!</span>
+        {%- else -%}
+          {%- assign remaining = free_shipping_threshold | minus: cart_total -%}
+          Add <strong>{{ remaining | money }}</strong> more to enjoy <strong>Free Complimentary Shipping</strong>
+        {%- endif -%}
+      </div>
+      <div class="shipping-progress-track">
+        {%- assign percent = cart_total | times: 100.0 | divided_by: free_shipping_threshold -%}
+        {%- if percent > 100 -%}{%- assign percent = 100 -%}{%- endif -%}
+        <div class="shipping-progress-fill" id="ShippingProgressFill" style="width: {{ percent }}%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Body / Items -->
+    <div class="cart-drawer-body">
+      <div class="cart-drawer-items-list" id="CartDrawerItemsList">
+        {%- if cart.item_count > 0 -%}
+          {%- for item in cart.items -%}
+            <div class="cart-drawer-item" data-line-item-key="{{ item.key }}">
+              <div class="item-thumb-box">
+                <img src="{{ item.image | image_url: width: 180, height: 180, crop: 'center' }}" alt="{{ item.title | escape }}" loading="lazy">
+              </div>
+
+              <div class="item-info-box">
+                <div class="item-title-row">
+                  <h4 class="item-title"><a href="{{ item.url }}">{{ item.product.title }}</a></h4>
+                  <button type="button" class="item-remove-btn" data-remove-key="{{ item.key }}" aria-label="Remove item">&times;</button>
+                </div>
+
+                {%- unless item.product.has_only_default_variant -%}
+                  <span class="item-variant-label">{{ item.variant.title }}</span>
+                {%- endunless -%}
+
+                <div class="item-price-qty-row">
+                  <div class="drawer-qty-stepper">
+                    <button type="button" class="drawer-qty-btn minus" data-update-key="{{ item.key }}" data-qty="{{ item.quantity | minus: 1 }}">&minus;</button>
+                    <span class="drawer-qty-val">{{ item.quantity }}</span>
+                    <button type="button" class="drawer-qty-btn plus" data-update-key="{{ item.key }}" data-qty="{{ item.quantity | plus: 1 }}">&plus;</button>
+                  </div>
+                  <span class="item-line-total">{{ item.final_line_price | money }}</span>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <!-- Empty State -->
+          <div class="cart-empty-view" id="CartEmptyView">
+            <div class="empty-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#DB9242" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <h3 class="font-serif">Your Bag is Empty</h3>
+            <p>Indulge in botanical skincare essentials designed for everyday radiance.</p>
+            <a href="/collections/all" class="btn-luxury-empty-shop" data-drawer-close>DISCOVER ESSENTIALS</a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="cart-drawer-footer" id="CartDrawerFooter" {% if cart.item_count == 0 %}style="display:none;"{% endif %}>
+      <div class="drawer-subtotal-row">
+        <span class="subtotal-label">Subtotal</span>
+        <span class="subtotal-amount font-serif" id="DrawerSubtotal">{{ cart.total_price | money }}</span>
+      </div>
+      <p class="drawer-tax-note">Taxes and shipping calculated at checkout</p>
+      
+      <form action="/checkout" method="post">
+        <button type="submit" name="checkout" class="btn-luxury-checkout">
+          <span>PROCEED TO CHECKOUT</span>
+          <span>&rarr;</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

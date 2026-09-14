@@ -1,13 +1,13 @@
 {
   "current": {
-    "color_primary": "#7d8c55",
-    "color_secondary": "#c5997e",
-    "color_bg_main": "#ffffff",
-    "color_bg_subtle": "#fbf9f5",
-    "color_dark": "#1a1a1a",
-    "color_text_main": "#2b2b2b",
-    "color_text_muted": "#767676",
-    "color_border": "#ece7e1",
+    "color_primary": "#DB9242",
+    "color_secondary": "#D89D8F",
+    "color_bg_main": "#FAFAFA",
+    "color_bg_subtle": "#F4F1EC",
+    "color_dark": "#000000",
+    "color_text_main": "#000000",
+    "color_text_muted": "#787878",
+    "color_border": "#E8E5E1",
     "social_twitter_link": "https://twitter.com",
     "social_facebook_link": "https://facebook.com",
     "social_instagram_link": "https://instagram.com",
@@ -18,14 +18,14 @@
   },
   "presets": {
     "Default": {
-      "color_primary": "#7d8c55",
-      "color_secondary": "#c5997e",
-      "color_bg_main": "#ffffff",
-      "color_bg_subtle": "#fbf9f5",
-      "color_dark": "#1a1a1a",
-      "color_text_main": "#2b2b2b",
-      "color_text_muted": "#767676",
-      "color_border": "#ece7e1"
+      "color_primary": "#DB9242",
+      "color_secondary": "#D89D8F",
+      "color_bg_main": "#FAFAFA",
+      "color_bg_subtle": "#F4F1EC",
+      "color_dark": "#000000",
+      "color_text_main": "#000000",
+      "color_text_muted": "#787878",
+      "color_border": "#E8E5E1"
     }
   }
 }

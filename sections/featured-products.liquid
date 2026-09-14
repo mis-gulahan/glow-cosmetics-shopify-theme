@@ -1,0 +1,239 @@
+{% comment %}
+  Ultra-Luxury Featured Products Grid
+  - 3 or 4-column clean minimalist layout
+  - Subtle hover lift effect
+  - Slide-up 'Quick Add' button with direct Ajax Cart Drawer integration
+  - Full schema customization
+{% endcomment %}
+
+<section class="luxury-featured-products-section" data-section-id="{{ section.id }}">
+  <div class="luxury-container">
+    
+    <!-- Section Header -->
+    <div class="section-head-luxury text-center">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="luxury-eyebrow-tag">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2 class="section-heading-luxury font-serif">{{ section.settings.heading | default: 'The Curated Collection' }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="section-desc-luxury">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <!-- Products Grid (3 or 4 columns) -->
+    <div class="luxury-grid-container grid-cols-{{ section.settings.columns_desktop }}">
+      {%- assign selected_collection = collections[section.settings.collection] -%}
+      {%- if selected_collection != blank and selected_collection.products.size > 0 -%}
+        {%- for product in selected_collection.products limit: section.settings.products_to_show -%}
+          <div class="luxury-product-card" data-product-id="{{ product.id }}">
+            <div class="card-media-aspect-ratio">
+              {%- if product.compare_at_price > product.price -%}
+                <span class="card-badge-luxury">SALE</span>
+              {%- endif -%}
+
+              <a href="{{ product.url }}" class="card-image-link">
+                {%- if product.featured_media != blank -%}
+                  <img
+                    src="{{ product.featured_media | image_url: width: 600, height: 750, crop: 'center' }}"
+                    alt="{{ product.title | escape }}"
+                    class="card-img-cover"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Glow Product" class="card-img-cover">
+                {%- endif -%}
+              </a>
+
+              <!-- Quick Add Button on Hover -->
+              <div class="card-quick-add-wrap">
+                {%- assign current_var = product.selected_or_first_available_variant -%}
+                {%- if current_var.available -%}
+                  <button
+                    type="button"
+                    class="btn-quick-add-luxury"
+                    data-variant-id="{{ current_var.id }}"
+                    data-product-title="{{ product.title | escape }}"
+                    data-product-price="{{ current_var.price | money }}"
+                    data-product-img="{{ product.featured_media | image_url: width: 180, height: 180, crop: 'center' }}"
+                  >
+                    <span>+ QUICK ADD</span>
+                  </button>
+                {%- else -%}
+                  <button type="button" class="btn-quick-add-luxury sold-out" disabled>
+                    <span>SOLD OUT</span>
+                  </button>
+                {%- endif -%}
+              </div>
+            </div>
+
+            <div class="card-details-luxury">
+              <span class="card-vendor">{{ product.vendor | default: 'GLOW LABS' }}</span>
+              <h3 class="card-title-text font-serif">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              <div class="card-rating-stars">★★★★★</div>
+              <div class="card-price-row">
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="price-strike">{{ product.compare_at_price | money }}</span>
+                {%- endif -%}
+                <span class="price-current-luxury">{{ product.price | money }}</span>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Visual Fallback Cards Matching Editorial Standards -->
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <span class="card-badge-luxury">NEW</span>
+            <a href="/products/smooth-essen" class="card-image-link">
+              <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Smooth Essen" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="1" data-product-title="Luminous Smooth Essence" data-product-price="$68.00" data-product-img="{{ 'product-bottle-green.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW ORGANICS</span>
+            <h3 class="card-title-text font-serif"><a href="/products/smooth-essen">Luminous Smooth Essence</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row"><span class="price-current-luxury">$68.00</span></div>
+          </div>
+        </div>
+
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <a href="/products/smoothing-essence" class="card-image-link">
+              <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Rejuvenating Serum" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="2" data-product-title="Rose Velvet Rejuvenating Serum" data-product-price="$85.00" data-product-img="{{ 'product-bottle-rose.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW ORGANICS</span>
+            <h3 class="card-title-text font-serif"><a href="/products/smoothing-essence">Rose Velvet Rejuvenating Serum</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row">
+              <span class="price-strike">$105.00</span>
+              <span class="price-current-luxury">$85.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <a href="/products/urban-decoy" class="card-image-link">
+              <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Hydra Mist" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="3" data-product-title="Aqua Glacier Hydrating Mist" data-product-price="$54.00" data-product-img="{{ 'product-bottle-blue.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW CLINICAL</span>
+            <h3 class="card-title-text font-serif"><a href="/products/urban-decoy">Aqua Glacier Hydrating Mist</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row"><span class="price-current-luxury">$54.00</span></div>
+          </div>
+        </div>
+
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <span class="card-badge-luxury">BESTSELLER</span>
+            <a href="/products/anti-aging-cream" class="card-image-link">
+              <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Ceramide Cream" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="4" data-product-title="Bio-Ceramide Illuminating Cream" data-product-price="$92.00" data-product-img="{{ 'product-bottle-amber.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW CLINICAL</span>
+            <h3 class="card-title-text font-serif"><a href="/products/anti-aging-cream">Bio-Ceramide Illuminating Cream</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row"><span class="price-current-luxury">$92.00</span></div>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_view_all -%}
+      <div class="section-footer-action text-center">
+        <a href="{{ selected_collection.url | default: '/collections/all' }}" class="btn-luxury-outline">
+          <span>VIEW COMPLETE COLLECTION</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Tag",
+      "default": "ORGANIC RADIANCE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Curated Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Each formula is thoughtfully harvested and dermatologically balanced to optimize your skin barrier."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop Columns",
+      "options": [
+        { "value": "3", "label": "3 Columns" },
+        { "value": "4", "label": "4 Columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Maximum Products to Show",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View Collection' Button",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products (Luxury Grid)"
+    }
+  ]
+}
+{% endschema %}

@@ -3,41 +3,38 @@
     "hero_banner": {
       "type": "hero-banner",
       "settings": {
-        "subtitle": "Natural",
-        "title": "Face Skin Care",
-        "text": "Experience clean, conscious beauty powered by active plant botanicals and certified organic formulas designed to revitalize your natural skin glow.",
-        "button_label": "SHOP NOW"
+        "eyebrow": "THE ART OF BOTANICAL RADIANCE",
+        "heading": "Cellular Vitality. Pure Luxury.",
+        "subheading": "High-potency clinical bio-actives engineered to restore elasticity, deep cellular hydration, and an ethereal natural glow.",
+        "button_label": "EXPLORE THE COLLECTION",
+        "section_height": "large",
+        "text_alignment": "center",
+        "overlay_opacity": 25
       }
     },
     "features_bar": {
       "type": "features-bar",
       "settings": {}
     },
-    "trending_products": {
-      "type": "trending-products",
+    "featured_products": {
+      "type": "featured-products",
       "settings": {
-        "subtitle": "New Season",
-        "title": "Trending Products",
+        "eyebrow": "ORGANIC RADIANCE",
+        "heading": "The Curated Collection",
+        "subheading": "Each formula is thoughtfully harvested and dermatologically balanced to optimize your skin barrier.",
+        "columns_desktop": "4",
         "products_to_show": 4,
-        "btn_label": "VIEW ALL PRODUCTS"
+        "show_view_all": true
       }
     },
-    "split_feature": {
-      "type": "split-feature",
+    "image_with_text": {
+      "type": "image-with-text",
       "settings": {
-        "subtitle": "NATURAL CARE",
-        "title": "What makes us unique?",
-        "text": "Our clinical approach combines botanical purity with advanced cosmetic science, ensuring optimal skin repair and sustained cellular hydration.",
-        "btn_text": "READ MORE"
-      }
-    },
-    "promo_banner": {
-      "type": "promo-banner",
-      "settings": {
-        "subtitle": "NATURAL",
-        "title": "Body Care Product",
-        "text": "Infused with cold-pressed botanical oils and natural ceramides to nourish your skin barrier with all-day moisture.",
-        "btn_label": "DISCOVER MORE"
+        "eyebrow": "OUR BOTANICAL HERITAGE",
+        "heading": "Pure Botanical Chemistry",
+        "text": "<p>Our philosophy is rooted in the symbiotic harmony between clinical dermatology and earth’s purest botanical essences. We meticulously cold-press living plant extracts within 24 hours of harvest to preserve active lipid vitality and molecular potency.</p>",
+        "image_position": "left",
+        "button_label": "OUR INGREDIENT PROMISE"
       }
     },
     "product_hotspots": {
@@ -82,9 +79,8 @@
   "order": [
     "hero_banner",
     "features_bar",
-    "trending_products",
-    "split_feature",
-    "promo_banner",
+    "featured_products",
+    "image_with_text",
     "product_hotspots",
     "deal_of_day",
     "brand_logos",

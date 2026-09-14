@@ -1,0 +1,145 @@
+{% comment %}
+  Ultra-Luxury Image with Text Section
+  - Split 50/50 layout for brand storytelling or clinical ingredients
+  - Consistent aspect ratio with object-fit: cover
+  - Gold accent highlights (#DB9242) and editorial typography
+  - Full JSON schema customization
+{% endcomment %}
+
+<section class="luxury-image-with-text-section layout-image-{{ section.settings.image_position }}" data-section-id="{{ section.id }}">
+  <div class="luxury-container">
+    <div class="image-text-split-grid">
+      
+      <!-- Image Media Column -->
+      <div class="split-media-col">
+        <div class="story-image-aspect-frame">
+          {%- if section.settings.image != blank -%}
+            <img
+              src="{{ section.settings.image | image_url: width: 1200 }}"
+              alt="{{ section.settings.heading | escape }}"
+              class="story-img-cover"
+              loading="lazy"
+            >
+          {%- else -%}
+            <img
+              src="{{ 'body-care-banner.svg' | asset_url }}"
+              alt="Brand Storytelling Botanical Actives"
+              class="story-img-cover"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <div class="image-corner-accent"></div>
+        </div>
+      </div>
+
+      <!-- Text & Storytelling Column -->
+      <div class="split-content-col">
+        <div class="story-content-inner">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="story-eyebrow-badge">{{ section.settings.eyebrow }}</span>
+          {%- endif -%}
+
+          <h2 class="story-heading-title font-serif">{{ section.settings.heading | default: 'Pure Botanical Chemistry' }}</h2>
+
+          <div class="story-body-copy">
+            {{ section.settings.text | default: '<p>Our philosophy is rooted in the symbiotic harmony between clinical dermatology and earth’s purest botanical essences. We meticulously cold-press living plant extracts within 24 hours of harvest to preserve active lipid vitality and molecular potency.</p>' }}
+          </div>
+
+          <!-- Feature Highlights List -->
+          <div class="story-highlights-list">
+            <div class="story-highlight-item">
+              <span class="highlight-check">✓</span>
+              <div class="highlight-info">
+                <h4>Cold-Pressed Botanical Actives</h4>
+                <p>Preserves 99.4% of essential fatty acids without thermal degradation.</p>
+              </div>
+            </div>
+
+            <div class="story-highlight-item">
+              <span class="highlight-check">✓</span>
+              <div class="highlight-info">
+                <h4>Micro-Molecular Penetration</h4>
+                <p>Engineered to bypass the stratum corneum for cellular hydration.</p>
+              </div>
+            </div>
+
+            <div class="story-highlight-item">
+              <span class="highlight-check">✓</span>
+              <div class="highlight-info">
+                <h4>Sustainable UV Glass Preservation</h4>
+                <p>100% recyclable violet glass shielding natural ingredients from oxidation.</p>
+              </div>
+            </div>
+          </div>
+
+          {%- if section.settings.button_label != blank -%}
+            <div class="story-action-wrap">
+              <a href="{{ section.settings.button_link | default: '/pages/about-us' }}" class="btn-luxury-cta">
+                <span>{{ section.settings.button_label }}</span>
+                <span class="cta-arrow">&rarr;</span>
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with Text (Story)",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        { "value": "left", "label": "Image on Left" },
+        { "value": "right", "label": "Image on Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Subtitle",
+      "default": "OUR BOTANICAL HERITAGE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pure Botanical Chemistry"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Our philosophy is rooted in the symbiotic harmony between clinical dermatology and earth’s purest botanical essences. We meticulously cold-press living plant extracts within 24 hours of harvest to preserve active lipid vitality.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "OUR INGREDIENT PROMISE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text (Story)"
+    }
+  ]
+}
+{% endschema %}

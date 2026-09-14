@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="{{ settings.color_primary | default: '#7d8c55' }}">
+    <meta name="theme-color" content="{{ settings.color_primary | default: '#DB9242' }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -24,12 +24,13 @@
 
     {{ content_for_header }}
 
-    <!-- Google Fonts -->
+    <!-- Luxury Typography: Cormorant Garamond (Serif) & Inter (Sans-Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Glow Theme CSS -->
+    <!-- Stylesheets: Base Luxury CSS and Theme System -->
+    {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'glow-theme.css' | asset_url | stylesheet_tag }}
   </head>
 
@@ -47,7 +48,11 @@
 
     {% section 'footer' %}
 
-    <!-- Glow Theme Script -->
+    <!-- Slide-Out Ajax Cart Drawer with Free Shipping Bar -->
+    {% render 'cart-drawer' %}
+
+    <!-- Scripts -->
     {{ 'glow-theme.js' | asset_url | script_tag }}
+    {{ 'cart-drawer.js' | asset_url | script_tag }}
   </body>
 </html>

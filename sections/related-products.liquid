@@ -1,108 +1,187 @@
-<section class="related-products-section">
-  <div class="container">
-    <div class="related-title-box">
-      <div class="section-tag">{{ section.settings.subtitle | default: 'Related Products' }}</div>
-      <h2 class="section-title">{{ section.settings.title | default: 'New Season.' }}</h2>
+{% comment %}
+  Ultra-Luxury Related Products Upsell Section
+  - Renders at the bottom of the product page
+  - Upsells complementary items from the same collection or recommendations
+  - Subtle lift hover and Quick Add to cart drawer
+{% endcomment %}
+
+<section class="luxury-related-products-section" data-section-id="{{ section.id }}">
+  <div class="luxury-container">
+    <div class="section-head-luxury text-center">
+      <span class="luxury-eyebrow-tag">{{ section.settings.eyebrow | default: 'HARMONIOUS PAIRINGS' }}</span>
+      <h2 class="section-heading-luxury font-serif">{{ section.settings.heading | default: 'Complete Your Ritual' }}</h2>
+      <p class="section-desc-luxury">{{ section.settings.subheading | default: 'Formulated to work in synergy with your current daily skincare regimen.' }}</p>
     </div>
 
-    <div class="product-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 960px; margin: 0 auto;">
-      <!-- Card 1 -->
-      <div class="product-card">
-        <div class="card-media-wrap">
-          <span class="card-badge" style="border-radius: 50%; width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 0.6rem;">SALE</span>
-          <a href="/products/precision-eyeliner">
-            <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Precision Eyeliner">
-          </a>
-          <div class="card-quick-actions">
-            <button type="button" class="action-icon-btn wishlist" title="Wishlist">{% render 'icon-heart' %}</button>
-            <button type="button" class="action-icon-btn quickview" title="Quick View">{% render 'icon-search' %}</button>
-            <button type="button" class="action-icon-btn cart" title="Add to Cart">{% render 'icon-cart' %}</button>
-          </div>
-        </div>
-        <div class="card-details">
-          <h3 class="product-card-title"><a href="/products/precision-eyeliner">Precision Eyeliner</a></h3>
-          <div class="card-prices">
-            <span class="price-compare">$50.15</span>
-            <span class="price-current">$40.07</span>
-          </div>
-          <div class="card-swatches">
-            <span class="swatch-circle" style="background-color: #6a1b9a;"></span>
-            <span class="swatch-circle" style="background-color: #1a1a1a;"></span>
-            <span class="swatch-circle" style="background-color: #e53935;"></span>
-          </div>
-        </div>
-      </div>
+    <div class="luxury-grid-container grid-cols-4">
+      {%- assign current_collection = product.collections.first -%}
+      {%- if current_collection != blank and current_collection.products.size > 1 -%}
+        {%- assign shown_count = 0 -%}
+        {%- for rel_product in current_collection.products -%}
+          {%- if rel_product.id != product.id and shown_count < 4 -%}
+            {%- assign shown_count = shown_count | plus: 1 -%}
+            <div class="luxury-product-card" data-product-id="{{ rel_product.id }}">
+              <div class="card-media-aspect-ratio">
+                {%- if rel_product.compare_at_price > rel_product.price -%}
+                  <span class="card-badge-luxury">SALE</span>
+                {%- endif -%}
 
-      <!-- Card 2 -->
-      <div class="product-card">
-        <div class="card-media-wrap">
-          <span class="card-badge" style="border-radius: 50%; width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 0.6rem;">SALE</span>
-          <a href="/products/smoothing-essence">
-            <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Smoothing Essence">
-          </a>
-          <div class="card-quick-actions">
-            <button type="button" class="action-icon-btn wishlist" title="Wishlist">{% render 'icon-heart' %}</button>
-            <button type="button" class="action-icon-btn quickview" title="Quick View">{% render 'icon-search' %}</button>
-            <button type="button" class="action-icon-btn cart" title="Add to Cart">{% render 'icon-cart' %}</button>
-          </div>
-        </div>
-        <div class="card-details">
-          <h3 class="product-card-title"><a href="/products/smoothing-essence">Smoothing Essence</a></h3>
-          <div class="card-prices">
-            <span class="price-compare">$65.00</span>
-            <span class="price-current">$50.67</span>
-          </div>
-          <div class="card-swatches">
-            <span class="swatch-circle" style="background-color: #fdd835;"></span>
-            <span class="swatch-circle" style="background-color: #f48fb1;"></span>
-            <span class="swatch-circle" style="background-color: #1e88e5;"></span>
-          </div>
-        </div>
-      </div>
+                <a href="{{ rel_product.url }}" class="card-image-link">
+                  {%- if rel_product.featured_media != blank -%}
+                    <img
+                      src="{{ rel_product.featured_media | image_url: width: 600, height: 750, crop: 'center' }}"
+                      alt="{{ rel_product.title | escape }}"
+                      class="card-img-cover"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Glow Product" class="card-img-cover">
+                  {%- endif -%}
+                </a>
 
-      <!-- Card 3 -->
-      <div class="product-card">
-        <div class="card-media-wrap">
-          <a href="/products/modern-eye-brush">
-            <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Modern Eye Brush">
-          </a>
-          <div class="card-quick-actions">
-            <button type="button" class="action-icon-btn wishlist" title="Wishlist">{% render 'icon-heart' %}</button>
-            <button type="button" class="action-icon-btn quickview" title="Quick View">{% render 'icon-search' %}</button>
-            <button type="button" class="action-icon-btn cart" title="Add to Cart">{% render 'icon-cart' %}</button>
+                <div class="card-quick-add-wrap">
+                  {%- assign rel_var = rel_product.selected_or_first_available_variant -%}
+                  <button
+                    type="button"
+                    class="btn-quick-add-luxury"
+                    data-variant-id="{{ rel_var.id }}"
+                    data-product-title="{{ rel_product.title | escape }}"
+                    data-product-price="{{ rel_var.price | money }}"
+                    data-product-img="{{ rel_product.featured_media | image_url: width: 180, height: 180, crop: 'center' }}"
+                  >
+                    <span>+ QUICK ADD</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card-details-luxury">
+                <span class="card-vendor">{{ rel_product.vendor | default: 'GLOW LABS' }}</span>
+                <h3 class="card-title-text font-serif">
+                  <a href="{{ rel_product.url }}">{{ rel_product.title }}</a>
+                </h3>
+                <div class="card-rating-stars">★★★★★</div>
+                <div class="card-price-row">
+                  {%- if rel_product.compare_at_price > rel_product.price -%}
+                    <span class="price-strike">{{ rel_product.compare_at_price | money }}</span>
+                  {%- endif -%}
+                  <span class="price-current-luxury">{{ rel_product.price | money }}</span>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Editorial Mock Fallbacks for Instant Visual Perfection -->
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <span class="card-badge-luxury">SALE</span>
+            <a href="/products/smoothing-essence" class="card-image-link">
+              <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Smoothing Essence" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="101" data-product-title="Rose Velvet Rejuvenating Serum" data-product-price="$85.00" data-product-img="{{ 'product-bottle-rose.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW ESSENTIALS</span>
+            <h3 class="card-title-text font-serif"><a href="/products/smoothing-essence">Rose Velvet Rejuvenating Serum</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row">
+              <span class="price-strike">$105.00</span>
+              <span class="price-current-luxury">$85.00</span>
+            </div>
           </div>
         </div>
-        <div class="card-details">
-          <h3 class="product-card-title"><a href="/products/modern-eye-brush">Modern Eye Brush</a></h3>
-          <div class="card-prices">
-            <span class="price-current">$61.45</span>
+
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <a href="/products/dry-skin-oil" class="card-image-link">
+              <img src="{{ 'product-dropper.svg' | asset_url }}" alt="Dry Skin Oil" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="102" data-product-title="Winter Rosehip Botanical Oil" data-product-price="$72.00" data-product-img="{{ 'product-dropper.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW ESSENTIALS</span>
+            <h3 class="card-title-text font-serif"><a href="/products/dry-skin-oil">Winter Rosehip Botanical Oil</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row"><span class="price-current-luxury">$72.00</span></div>
           </div>
         </div>
-      </div>
+
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <a href="/products/anti-aging-cream" class="card-image-link">
+              <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Anti-Aging Cream" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="103" data-product-title="Bio-Ceramide Illuminating Cream" data-product-price="$92.00" data-product-img="{{ 'product-bottle-amber.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW CLINICAL</span>
+            <h3 class="card-title-text font-serif"><a href="/products/anti-aging-cream">Bio-Ceramide Illuminating Cream</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row"><span class="price-current-luxury">$92.00</span></div>
+          </div>
+        </div>
+
+        <div class="luxury-product-card">
+          <div class="card-media-aspect-ratio">
+            <a href="/products/urban-decoy" class="card-image-link">
+              <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Hydra Mist" class="card-img-cover">
+            </a>
+            <div class="card-quick-add-wrap">
+              <button type="button" class="btn-quick-add-luxury" data-variant-id="104" data-product-title="Aqua Glacier Hydrating Mist" data-product-price="$54.00" data-product-img="{{ 'product-bottle-blue.svg' | asset_url }}">
+                <span>+ QUICK ADD</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-details-luxury">
+            <span class="card-vendor">GLOW CLINICAL</span>
+            <h3 class="card-title-text font-serif"><a href="/products/urban-decoy">Aqua Glacier Hydrating Mist</a></h3>
+            <div class="card-rating-stars">★★★★★</div>
+            <div class="card-price-row"><span class="price-current-luxury">$54.00</span></div>
+          </div>
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Related Products",
+  "name": "Related Products (Upsell)",
   "settings": [
     {
       "type": "text",
-      "id": "subtitle",
-      "label": "Cursive Subtitle",
-      "default": "Related Products"
+      "id": "eyebrow",
+      "label": "Eyebrow Subtitle",
+      "default": "HARMONIOUS PAIRINGS"
     },
     {
       "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "New Season."
+      "id": "heading",
+      "label": "Heading",
+      "default": "Complete Your Ritual"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Formulated to work in synergy with your current daily skincare regimen."
     }
   ],
   "presets": [
     {
-      "name": "Related Products"
+      "name": "Related Products (Upsell)"
     }
   ]
 }

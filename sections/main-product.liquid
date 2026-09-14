@@ -1,218 +1,364 @@
-<div class="container pdp-page-layout">
-  <!-- Left Column: Sidebar -->
-  {% section 'product-sidebar' %}
+{% comment %}
+  Ultra-Luxury Cosmetic / Skincare Main Product Section
+  - Split-screen layout: Sticky Media Gallery (Left) & Product Details (Right)
+  - Color Swatches & Size Pill Selectors
+  - Full-width Luxury Add to Cart Button
+  - Collapsible Accordions: Description, How to Use, Ingredients
+{% endcomment %}
 
-  <!-- Right Column: Main PDP Content -->
-  <div class="pdp-main-content">
-    <div class="pdp-main-grid">
-      <!-- Media Gallery -->
-      <div class="gallery-container">
-        <div class="gallery-main-view">
-          {%- if product.featured_image != blank -%}
-            <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" id="pdpMainImg">
-          {%- else -%}
-            <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Smooth Essen Bottle" id="pdpMainImg">
+<section class="main-product-section" data-section-id="{{ section.id }}" data-section-type="main-product">
+  <div class="luxury-container">
+    <div class="product-split-layout">
+      
+      <!-- LEFT: Sticky Media Gallery -->
+      <div class="product-media-column">
+        <div class="product-media-sticky">
+          <!-- Main Featured Image Container -->
+          <div class="product-main-media-frame">
+            {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+            {%- if featured_media != blank -%}
+              <img
+                id="ProductMainImage-{{ section.id }}"
+                src="{{ featured_media | image_url: width: 1200 }}"
+                alt="{{ featured_media.alt | escape | default: product.title }}"
+                class="product-featured-img"
+                loading="eager"
+              >
+            {%- else -%}
+              <img
+                id="ProductMainImage-{{ section.id }}"
+                src="{{ 'product-bottle-green.svg' | asset_url }}"
+                alt="{{ product.title | escape | default: 'Luxury Skincare Essence' }}"
+                class="product-featured-img"
+                loading="eager"
+              >
+            {%- endif -%}
+
+            {%- if product.compare_at_price > product.price -%}
+              <span class="luxury-sale-tag">SALE</span>
+            {%- endif -%}
+          </div>
+
+          <!-- Thumbnails Row -->
+          <div class="product-thumbnails-carousel">
+            {%- if product.media.size > 1 -%}
+              {%- for media in product.media -%}
+                <button
+                  type="button"
+                  class="thumb-item-btn {% if forloop.first %}active{% endif %}"
+                  data-media-id="{{ media.id }}"
+                  data-full-src="{{ media | image_url: width: 1200 }}"
+                  aria-label="View product image {{ forloop.index }}"
+                >
+                  <img src="{{ media | image_url: width: 160, height: 160, crop: 'center' }}" alt="{{ media.alt | escape }}" loading="lazy">
+                </button>
+              {%- endfor -%}
+            {%- else -%}
+              <!-- Visual Mock Fallback Thumbnails -->
+              <button type="button" class="thumb-item-btn active" data-full-src="{{ 'product-bottle-green.svg' | asset_url }}">
+                <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Thumbnail 1">
+              </button>
+              <button type="button" class="thumb-item-btn" data-full-src="{{ 'product-bottle-rose.svg' | asset_url }}">
+                <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Thumbnail 2">
+              </button>
+              <button type="button" class="thumb-item-btn" data-full-src="{{ 'product-bottle-blue.svg' | asset_url }}">
+                <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Thumbnail 3">
+              </button>
+              <button type="button" class="thumb-item-btn" data-full-src="{{ 'product-bottle-amber.svg' | asset_url }}">
+                <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Thumbnail 4">
+              </button>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Product Details & Purchase Form -->
+      <div class="product-info-column">
+        <div class="product-details-content">
+          
+          <!-- Brand / Vendor -->
+          {%- if section.settings.show_vendor and product.vendor != blank -%}
+            <span class="product-vendor-tag">{{ product.vendor }}</span>
           {%- endif -%}
-        </div>
 
-        <div class="gallery-thumbs-row">
-          <button type="button" class="gallery-nav-arrow prev" aria-label="Previous">&lt;</button>
-          
-          <button type="button" class="gallery-thumb-btn active" data-src="{{ 'product-bottle-green.svg' | asset_url }}">
-            <img src="{{ 'product-bottle-green.svg' | asset_url }}" alt="Thumb 1">
-          </button>
-          
-          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-rose.svg' | asset_url }}">
-            <img src="{{ 'product-bottle-rose.svg' | asset_url }}" alt="Thumb 2">
-          </button>
+          <!-- Title -->
+          <h1 class="product-headline font-serif">{{ product.title | default: 'Luminous Botanical Restorative Essence' }}</h1>
 
-          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-blue.svg' | asset_url }}">
-            <img src="{{ 'product-bottle-blue.svg' | asset_url }}" alt="Thumb 3">
-          </button>
-
-          <button type="button" class="gallery-thumb-btn" data-src="{{ 'product-bottle-amber.svg' | asset_url }}">
-            <img src="{{ 'product-bottle-amber.svg' | asset_url }}" alt="Thumb 4">
-          </button>
-
-          <button type="button" class="gallery-nav-arrow next" aria-label="Next">&gt;</button>
-        </div>
-      </div>
-
-      <!-- Product Form & Meta -->
-      <div class="pdp-info-wrap">
-        <h1 class="pdp-title">{{ product.title | default: 'Smooth Essen' }}</h1>
-
-        <div class="pdp-rating-row">
-          {% render 'rating-stars' %}
-        </div>
-
-        <div class="pdp-price-row">
-          <span class="pdp-price-large">{{ product.price | default: 3573 | money }}</span>
-        </div>
-
-        <div class="pdp-meta-row">
-          <div><strong>Vendor :</strong> {{ product.vendor | default: 'glass-labs' }}</div>
-          <div><strong>Product Type :</strong> {{ product.type | default: 'glow' }}</div>
-        </div>
-
-        <!-- Wishlist & Sizechart -->
-        <div class="pdp-actions-row">
-          <a href="#" class="add-wishlist">
-            {% render 'icon-heart' %} Add to Wishlist
-          </a>
-          <a href="#" class="open-sizechart">
-            📏 Sizechart
-          </a>
-        </div>
-
-        <!-- Stock Urgency Bar -->
-        <div class="stock-urgency-box">
-          <div class="stock-text">Hurry! only 4 units left in stock!</div>
-          <div class="stock-bar-track">
-            <div class="stock-bar-fill" style="width: 25%;"></div>
+          <!-- Reviews & Rating Stars -->
+          <div class="product-rating-line">
+            <div class="luxury-stars" aria-label="5 out of 5 stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <span class="rating-text-muted">(4.9 &bull; 142 Reviews)</span>
           </div>
-        </div>
 
-        <!-- Variant Swatches -->
-        <div class="variant-selector-group">
-          <span class="variant-label">Color: <strong class="selected-color-name">Red</strong></span>
-          <div class="pdp-swatches">
-            <button type="button" class="pdp-swatch-btn active" style="background-color: #e53935;" data-color="Red" aria-label="Red"></button>
-            <button type="button" class="pdp-swatch-btn" style="background-color: #1a1a1a;" data-color="Black" aria-label="Black"></button>
-            <button type="button" class="pdp-swatch-btn" style="background-color: #fb8c00;" data-color="Orange" aria-label="Orange"></button>
-            <button type="button" class="pdp-swatch-btn" style="background-color: #43a047;" data-color="Green" aria-label="Green"></button>
+          <!-- Dynamic Pricing -->
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+          <div class="product-price-container" id="ProductPrice-{{ section.id }}">
+            <span class="luxury-price-main font-serif">
+              {{ current_variant.price | default: 6800 | money }}
+            </span>
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              <span class="luxury-price-strike">
+                {{ current_variant.compare_at_price | money }}
+              </span>
+            {%- endif -%}
+            <span class="tax-shipping-note">Taxes included. Free luxury shipping over $75.</span>
           </div>
-        </div>
 
-        <!-- Quantity & Add to Cart -->
-        {% form 'product', product, id: 'product-form' %}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: 1 }}">
+          <div class="luxury-gold-divider"></div>
 
-          <div class="pdp-purchase-row">
-            <div class="quantity-stepper">
-              <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">-</button>
-              <input type="text" name="quantity" class="qty-input" value="1" readonly aria-label="Quantity">
-              <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+          <!-- Product Form -->
+          {% form 'product', product, id: 'LuxuryProductForm', class: 'luxury-product-form' %}
+            <input type="hidden" name="id" value="{{ current_variant.id | default: 1 }}">
+
+            <!-- Variants: Color Swatches & Size Selectors -->
+            {%- unless product.has_only_default_variant -%}
+              {%- for option in product.options_with_values -%}
+                {%- assign option_name_downcase = option.name | downcase -%}
+                
+                {%- if option_name_downcase contains 'color' or option_name_downcase contains 'shade' -%}
+                  <!-- Color Swatches -->
+                  <div class="variant-option-wrap" data-option-index="{{ forloop.index0 }}">
+                    <div class="variant-label-row">
+                      <span class="variant-title-text">{{ option.name }}:</span>
+                      <span class="variant-active-value" id="ActiveColorLabel">{{ option.selected_value }}</span>
+                    </div>
+                    <div class="color-swatch-list">
+                      {%- for value in option.values -%}
+                        <label class="swatch-label-wrap">
+                          <input
+                            type="radio"
+                            name="options[{{ option.name | escape }}]"
+                            value="{{ value | escape }}"
+                            class="swatch-radio-input"
+                            {% if option.selected_value == value %}checked{% endif %}
+                          >
+                          <span
+                            class="swatch-color-disc"
+                            style="background-color: {{ value | handleize }};"
+                            title="{{ value }}"
+                          ></span>
+                        </label>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+
+                {%- else -%}
+                  <!-- Size / Volume Pills -->
+                  <div class="variant-option-wrap" data-option-index="{{ forloop.index0 }}">
+                    <div class="variant-label-row">
+                      <span class="variant-title-text">{{ option.name }}:</span>
+                      <span class="variant-active-value">{{ option.selected_value }}</span>
+                    </div>
+                    <div class="size-pills-list">
+                      {%- for value in option.values -%}
+                        <label class="pill-label-wrap">
+                          <input
+                            type="radio"
+                            name="options[{{ option.name | escape }}]"
+                            value="{{ value | escape }}"
+                            class="pill-radio-input"
+                            {% if option.selected_value == value %}checked{% endif %}
+                          >
+                          <span class="size-pill-text">{{ value }}</span>
+                        </label>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- else -%}
+              <!-- Fallback Mock Swatches & Sizes for Instant Visual Perfection -->
+              <div class="variant-option-wrap">
+                <div class="variant-label-row">
+                  <span class="variant-title-text">Shade / Botanical Tone:</span>
+                  <span class="variant-active-value" id="ActiveColorLabel">Pure Radiance</span>
+                </div>
+                <div class="color-swatch-list">
+                  <label class="swatch-label-wrap">
+                    <input type="radio" name="mock_shade" value="Pure Radiance" class="swatch-radio-input" checked>
+                    <span class="swatch-color-disc" style="background-color: #f6e3d4;" title="Pure Radiance"></span>
+                  </label>
+                  <label class="swatch-label-wrap">
+                    <input type="radio" name="mock_shade" value="Rose Infusion" class="swatch-radio-input">
+                    <span class="swatch-color-disc" style="background-color: #d89d8f;" title="Rose Infusion"></span>
+                  </label>
+                  <label class="swatch-label-wrap">
+                    <input type="radio" name="mock_shade" value="Golden Glow" class="swatch-radio-input">
+                    <span class="swatch-color-disc" style="background-color: #db9242;" title="Golden Glow"></span>
+                  </label>
+                  <label class="swatch-label-wrap">
+                    <input type="radio" name="mock_shade" value="Botanical Sage" class="swatch-radio-input">
+                    <span class="swatch-color-disc" style="background-color: #7d8c55;" title="Botanical Sage"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="variant-option-wrap">
+                <div class="variant-label-row">
+                  <span class="variant-title-text">Size / Volume:</span>
+                  <span class="variant-active-value">50 ml / 1.7 fl. oz</span>
+                </div>
+                <div class="size-pills-list">
+                  <label class="pill-label-wrap">
+                    <input type="radio" name="mock_size" value="30 ml" class="pill-radio-input">
+                    <span class="size-pill-text">30 ml</span>
+                  </label>
+                  <label class="pill-label-wrap">
+                    <input type="radio" name="mock_size" value="50 ml" class="pill-radio-input" checked>
+                    <span class="size-pill-text">50 ml</span>
+                  </label>
+                  <label class="pill-label-wrap">
+                    <input type="radio" name="mock_size" value="100 ml" class="pill-radio-input">
+                    <span class="size-pill-text">100 ml (Value)</span>
+                  </label>
+                </div>
+              </div>
+            {%- endunless -%}
+
+            <!-- Quantity & Full-Width Add To Cart -->
+            <div class="purchase-controls-row">
+              <div class="luxury-qty-stepper">
+                <button type="button" class="qty-step-btn qty-decrement" aria-label="Decrease quantity">&minus;</button>
+                <input type="number" name="quantity" class="qty-step-input" value="1" min="1" aria-label="Quantity">
+                <button type="button" class="qty-step-btn qty-increment" aria-label="Increase quantity">&plus;</button>
+              </div>
+
+              <button
+                type="submit"
+                name="add"
+                class="btn-luxury-add-cart"
+                {% unless current_variant.available %}disabled{% endunless %}
+              >
+                <span class="btn-cart-text">
+                  {% if current_variant.available %}
+                    {{ section.settings.add_to_cart_text | default: 'ADD TO CART' }}
+                  {% else %}
+                    SOLD OUT
+                  {% endif %}
+                </span>
+                <span class="btn-cart-price">{{ current_variant.price | default: 6800 | money }}</span>
+              </button>
+            </div>
+
+            {%- if section.settings.show_dynamic_checkout -%}
+              <div class="dynamic-checkout-wrapper">
+                {{ form | payment_button }}
+              </div>
+            {%- endif -%}
+          {% endform %}
+
+          <!-- Luxury Trust Badges -->
+          <div class="luxury-perks-strip">
+            <div class="perk-badge-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>100% Pure Organic</span>
+            </div>
+            <div class="perk-badge-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <span>Complimentary Shipping</span>
+            </div>
+            <div class="perk-badge-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Cruelty-Free Certified</span>
             </div>
           </div>
 
-          <div class="pdp-btn-group">
-            <button type="submit" name="add" class="btn btn-add-cart">ADD TO CART</button>
-            <button type="button" class="btn btn-buy-now">BUY IT NOW</button>
-          </div>
-        {% endform %}
-
-        <!-- Trust Features (2x2 Grid) -->
-        <div class="trust-grid">
-          <div class="trust-item">
-            <div class="trust-icon">📦</div>
-            <div class="trust-text">
-              <h6>Free Delivery</h6>
-              <p>Lorem ipsum dummy</p>
+          <!-- COLLAPSIBLE ACCORDIONS: Description, How to Use, Ingredients -->
+          <div class="luxury-accordions-group">
+            
+            <!-- Accordion 1: Description -->
+            <div class="luxury-accordion-card open">
+              <button type="button" class="accordion-trigger-btn" aria-expanded="true">
+                <span class="accordion-head-title font-serif">Description</span>
+                <span class="accordion-indicator-icon"></span>
+              </button>
+              <div class="accordion-collapse-body" style="display: block;">
+                <div class="accordion-inner-text">
+                  {%- if product.description != blank -%}
+                    {{ product.description }}
+                  {%- else -%}
+                    <p>
+                      Immerse your complexion in high-potency clinical botanicals. Formulated with biocompatible peptides and cold-pressed floral actives, this transformative serum strengthens the dermal moisture barrier while delivering luminous, photo-ready hydration.
+                    </p>
+                    <ul class="luxury-bullet-list">
+                      <li>Clinically shown to increase hydration levels by 210% after first application.</li>
+                      <li>Restores skin elasticity and smoothes the appearance of micro-textures.</li>
+                      <li>Absorbs instantaneously without residue, imparting a velvet-dew finish.</li>
+                    </ul>
+                  {%- endif -%}
+                </div>
+              </div>
             </div>
+
+            <!-- Accordion 2: How to Use -->
+            <div class="luxury-accordion-card">
+              <button type="button" class="accordion-trigger-btn" aria-expanded="false">
+                <span class="accordion-head-title font-serif">How to Use</span>
+                <span class="accordion-indicator-icon"></span>
+              </button>
+              <div class="accordion-collapse-body">
+                <div class="accordion-inner-text">
+                  <ol class="luxury-numbered-list">
+                    <li><strong>Cleanse:</strong> Start with freshly purified skin using your preferred gentle cleanser.</li>
+                    <li><strong>Dispense:</strong> Warm 3 to 4 drops between the palms of your hands to activate botanical enzymes.</li>
+                    <li><strong>Press &amp; Sculpt:</strong> Gently press into the face, neck, and décolletage using upwards sweeping motions.</li>
+                    <li><strong>Ritual:</strong> Follow with your restorative cream morning and evening for optimal cellular radiance.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion 3: Ingredients -->
+            <div class="luxury-accordion-card">
+              <button type="button" class="accordion-trigger-btn" aria-expanded="false">
+                <span class="accordion-head-title font-serif">Ingredients</span>
+                <span class="accordion-indicator-icon"></span>
+              </button>
+              <div class="accordion-collapse-body">
+                <div class="accordion-inner-text">
+                  <p class="ingredient-intro">
+                    <strong>100% Clean Actives:</strong> Free of parabens, sulfates, silicones, synthetic fragrances, and artificial colorants.
+                  </p>
+                  <p class="ingredient-full-list">
+                    Aqua (Deionized Glacier Water), Camellia Sinensis (White Tea) Leaf Extract, Organic Simmondsia Chinensis (Jojoba) Seed Oil, Sodium Hyaluronate (Multi-Molecular Hyaluronic Acid), Niacinamide (Vitamin B3), Rosa Damascena Flower Hydrosol, Squalane (Olive-Derived), Bakuchiol, Tocopherol (Pure Vitamin E), Helianthus Annuus (Sunflower) Seed Wax, Pelargonium Graveolens (Rose Geranium) Essential Essence.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="trust-item">
-            <div class="trust-icon">₹</div>
-            <div class="trust-text">
-              <h6>Way To Buy</h6>
-              <p>Lorem ipsum dummy</p>
-            </div>
-          </div>
-
-          <div class="trust-item">
-            <div class="trust-icon">👤</div>
-            <div class="trust-text">
-              <h6>Personal Session</h6>
-              <p>Lorem ipsum dummy</p>
-            </div>
-          </div>
-
-          <div class="trust-item">
-            <div class="trust-icon">🎁</div>
-            <div class="trust-text">
-              <h6>Gift Voucher</h6>
-              <p>Lorem ipsum dummy</p>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Product Description & Accordion Tabs Section -->
-    <div class="pdp-tabs-section">
-      <div class="pdp-tab-nav" role="tablist">
-        <button type="button" class="tab-nav-btn active" data-tab="tab-desc">DESCRIPTION</button>
-        <button type="button" class="tab-nav-btn" data-tab="tab-reviews">REVIEW TAB</button>
-        <button type="button" class="tab-nav-btn" data-tab="tab-shipping">SHIPPING &amp; RETURNS</button>
-        <button type="button" class="tab-nav-btn" data-tab="tab-custom">CUSTOM TAB</button>
-      </div>
-
-      <!-- Tab 1: Description -->
-      <div class="pdp-tab-pane active" id="tab-desc">
-        <p style="margin-bottom: 16px;">
-          Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessories with a straw hat and you’re ready for summer!
-        </p>
-
-        <h4>Sample Unordered List</h4>
-        <ul>
-          <li>Commodous in tempor ullamcorper minusculis</li>
-          <li>Pellentesque vitae neque mattis urna mattis laoreet.</li>
-          <li>Vivamus sit amet purus justo.</li>
-          <li>Proin molestie egestas orci ac suscipit risus posuere loremou.</li>
-        </ul>
-
-        <h4>Sample Ordered List</h4>
-        <ol>
-          <li>Commodous in tempor ullamcorper minusculis</li>
-          <li>Pellentesque vitae neque mattis urna mattis laoreet.</li>
-          <li>Vivamus sit amet purus justo.</li>
-          <li>Proin molestie egestas orci ac suscipit risus posuere loremou.</li>
-        </ol>
-
-        <h4>Sample Paragraph Text</h4>
-        <blockquote style="font-style: italic; background: #fdfbf7; padding: 14px 20px; border-left: 3px solid var(--color-secondary); margin-top: 10px; border-radius: 4px;">
-          Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessories with a straw hat and you’re ready for summer! Folded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit.
-        </blockquote>
-      </div>
-
-      <!-- Tab 2: Reviews -->
-      <div class="pdp-tab-pane" id="tab-reviews">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-          <div>
-            <h4 style="margin: 0;">Customer Reviews</h4>
-            {% render 'rating-stars' %}
-            <span style="font-size: 0.85rem; color: var(--color-text-muted);">Based on 48 genuine reviews</span>
-          </div>
-          <button type="button" class="btn btn-outline" style="padding: 8px 16px;">Write a Review</button>
-        </div>
-        <p style="color: var(--color-text-muted);">
-          “Incredible texture and absorption! My skin has never felt softer or more hydrated throughout dry season.” — <em>Sarah L.</em>
-        </p>
-      </div>
-
-      <!-- Tab 3: Shipping & Returns -->
-      <div class="pdp-tab-pane" id="tab-shipping">
-        <h4>Shipping Policy</h4>
-        <p>Standard delivery takes 3-5 business days. We offer free express shipping on all domestic orders over $50.</p>
-        <h4 style="margin-top: 14px;">30-Day Happiness Guarantee</h4>
-        <p>If you are not completely satisfied with your botanical skincare product, return it within 30 days for a full refund or exchange.</p>
-      </div>
-
-      <!-- Tab 4: Custom Tab -->
-      <div class="pdp-tab-pane" id="tab-custom">
-        <h4>Clean Beauty Pledge</h4>
-        <p>
-          All Glow formulas are strictly formulated without parabens, sulfates, phthalates, synthetic dyes, or artificial fragrances. Verified by independent lab testing.
-        </p>
-      </div>
     </div>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
-  "name": "Main Product Detail",
-  "settings": []
+  "name": "Main Product (Luxury)",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show brand vendor",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to cart button text",
+      "default": "ADD TO CART"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "Show dynamic checkout button (Buy It Now)",
+      "default": true
+    }
+  ]
 }
 {% endschema %}
